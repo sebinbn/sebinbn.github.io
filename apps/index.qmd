@@ -1,0 +1,17 @@
+---
+title: Apps
+---
+
+::: {.project}
+## Global debt flows
+
+Visualise foreign ownership of government bonds using IMF's CPIS data. This Shiny app is written in R.
+
+[Open the Shiny app](https://sebin-b-nidhiri.shinyapps.io/CPIS_GG_App/) · [Source code](https://github.com/sebinbn/CPIS_GGApp)
+:::
+
+## Continuous compound interest calculator
+
+Calculate the final value of an initial investment with continuous compounding.
+
+[Read the article and use the calculator](/blog/posts/compoundinterest/index.qmd) · [Open the calculator](compound-interest/calculator.html)

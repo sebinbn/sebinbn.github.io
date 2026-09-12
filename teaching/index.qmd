@@ -1,0 +1,30 @@
+---
+title: Teaching
+---
+
+## Instructional Assistant Professor at University of Houston {#h.x0tykybu5ctv}
+
+- **Time Series Analysis and Forecasting** — Fall 2026 · [Syllabus](https://uh.simplesyllabus.com/doc/u3q1qx13w/Fall-2026-ECON-4325-26058-Applied-Time-Series-Analysis-and-Forecasting?mode=view)
+- **Introduction to Economic Data Analysis** — Fall 2026 · [Syllabus](https://uh.simplesyllabus.com/doc/ydk6g0z5q/Fall-2026-ECON-3320-26029-Introduction-to-Economic-Data-Analysis?mode=view)
+
+## Instructor at University of Houston {#h.rljwlwj9azy7}
+
+- **Principles of Microeconomics** (undergraduate) — Fall 2024
+- **Linear Algebra** (PhD Math bootcamp) — Summer 2023, Summer 2024
+
+## Assistant Professor at Symbiosis International University, India {#h.2uy7hcej4uns}
+
+- **Introductory Econometrics** (undergraduate) — Fall 2016, Fall 2017 · [Syllabus](https://drive.google.com/file/d/1YsYD3OdARj0KUBcd8A99BBZUubrDzkK4/view?usp=sharing)
+- **Statistics for Economics** (undergraduate) — Spring 2017, Spring 2018 · [Syllabus](https://drive.google.com/file/d/1LOA4XvcbtENnwFB3kZfakelGHTv_7nzy/view?usp=sharing)
+- **Growth theory** (undergraduate) — Fall 2020 as a Visiting lecturer · [Syllabus](https://drive.google.com/file/d/1jb2kNAIqSSsly6zslzcNAEo2eSiIb63a/view?usp=sharing)
+
+![](/images/teaching.jpg){.teaching-photo fig-alt="Sebin Nidhiri standing beside a whiteboard with econometric equations."}
+
+## Teaching Assistant at University of Houston {#h.uu24w1rh3chc}
+
+- **Econometrics II** (PhD core) — Fall 2023
+- **Econometrics I** (PhD core) — Spring 2023
+- **Quantitative Economic Analysis** (PhD core) — Fall 2022
+- **Time Series Analysis** (undergraduate) — Fall 2021
+- **Principles of Macroeconomics** (undergraduate) — Spring 2022
+- **Managerial Economics** (undergraduate) — Fall 2025

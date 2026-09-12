@@ -1,0 +1,9 @@
+---
+title: Global debt flows
+---
+
+Visualise foreign ownership of government bonds around the world using IMF's CPIS data.
+
+[Open the Shiny app](https://sebin-b-nidhiri.shinyapps.io/CPIS_GG_App/){.btn .btn-outline-primary}
+
+The app is written in Shiny for R. [Get the code to reproduce it locally](https://github.com/sebinbn/CPIS_GGApp).

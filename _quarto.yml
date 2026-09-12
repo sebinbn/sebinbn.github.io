@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - cv/index.qmd
+    - research/index.qmd
+    - teaching/index.qmd
+    - apps/index.qmd
+    - blog/index.qmd
+    - blog/posts/**/*.qmd
+    - home/index.qmd
+    - global-debt-flows/index.qmd
+  resources:
+    - apps/compound-interest/calculator.html
+    - files/NidhiriSebin_CV_B_v1.pdf
+    - images/homePortrait.jpg
+    - images/teaching.jpg
+website:
+  title: Sebin Nidhiri
+  site-url: https://sebinbn.github.io
+  description: Sebin Bapty Nidhiri — empirical macroeconomics, time series econometrics, and teaching.
+  navbar:
+    background: white
+    collapse-below: lg
+    left:
+      - href: index.qmd
+        text: Home
+      - research/index.qmd
+      - teaching/index.qmd
+      - apps/index.qmd
+      - blog/index.qmd
+      - href: cv/index.qmd
+        text: CV
+  page-footer:
+    left: Sebin Bapty Nidhiri
+    right:
+      - text: Email
+        href: mailto:sbnidhiri@uh.edu
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: false
+    lang: en
+    smooth-scroll: false
+    link-external-newwindow: false
+    pagetitle: "{{< meta title >}} | Sebin Nidhiri"

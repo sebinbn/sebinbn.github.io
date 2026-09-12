@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sebin Bapty Nidhiri">
+<meta name="dcterms.date" content="2020-04-24">
+<meta name="description" content="How monetary policy affects interest rates, borrowing, saving, and the wider economy.">
+
+<title>All things Money (Part 2) – Who fixes my Interest Rate? | Sebin Nidhiri – Sebin Nidhiri</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-67066a1b87feadda94346438552b42b0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Sebin Nidhiri</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../research/index.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../teaching/index.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../apps/index.html"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../cv/index.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">All things Money (Part 2) – Who fixes my Interest Rate?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Economics</div>
+    <div class="quarto-category">Monetary policy</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    How monetary policy affects interest rates, borrowing, saving, and the wider economy.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sebin Bapty Nidhiri </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 24, 2020</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>A two part article on understanding money and monetary policy</p>
+<p><a href="../../../blog/posts/inflation-is-a-good-thing/index.html">Part 1 – Inflation is a good thing</a></p>
+<p>Today people are worried about falling interest rates and rising prices. Senior citizens, in particular are concerned that their Fixed Deposits no longer give them the requisite income to maintain their standard of living. Salaried people are worried about the rising prices which in effect reduce the purchasing power of their salaries. While these may seem disparate concerns, there is a common thread that runs through both and which determines both; Monetary Policy.</p>
+<p>You have most likely heard of it and even if you think you haven’t, let me assure you that you have. Let me give you an example. When you hear in the news that “RBI cuts repo rate by 0.25%”, that is an example of monetary policy. India has recently moved to a monetary policy regime of ‘inflation targeting’ and has set up a monetary policy committee comprising of central bank officials and academic experts. This article aims to answer questions like: ‘What is monetary policy and how does it impact me?’, ‘How does changing the repo rate by a minuscule 0.25% impact a trillion dollar large economy?’; ‘Will India eventually go towards zero interest rates or negative interest rates as has been the case in many developed countries?’</p>
+<section id="what-is-monetary-policy" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-monetary-policy">What is Monetary Policy ?</h2>
+<p>Having understood money supply and prices in <a href="../../../blog/posts/inflation-is-a-good-thing/index.html">part 1</a> of this series, let us now bring in to the discussion interest rates and also understand monetary policy.</p>
+<p>Monetary Policy are measures taken (usually by a central bank) to regulate the amount of money circulating in the economy. Money supply can be regulated in different ways like open market operations, changing reserve requirements, changing rates (bank rate, repo &amp; reverse repo rate), moral suasion etc. The last method is known as a qualitative method while the others are quantitative. Quantitative methods regulate the amount of total credit in the economy while qualitative are aimed to regulate specific type of credit in the economy (like the recent 2020 February monetary policy <a href="https://www.livemint.com/industry/banking/rbi-issues-notification-on-crr-leeway-for-new-retail-msme-loans-11581337180625.html">measures to improve credit to auto, MSMEs and residential housing loans</a>). The choice of monetary policy instrument used to regulate money supply has varied over time globally; sometimes thanks to the work of economists as they improve their own understanding of the workings of monetary policy or at other times necessitated by some crisis the world or country faces.</p>
+</section>
+<section id="interest-rates-and-economy" class="level2">
+<h2 class="anchored" data-anchor-id="interest-rates-and-economy">Interest rates and economy</h2>
+<p>As mentioned earlier, there are various means by which a central bank can impact money supply and thereby inflation and growth. Countries across the world have and continue to use varied measures for the same. But now the most popular way around the world to implement monetary policy is to control interest rates. In reality, there are different interest rates in any economy. There are different rates offered by banks on deposits and other rates charged from loan takers. These rates also vary on different kind of deposits/loans and also from bank to bank. Loans to finance consumption get charged a higher rate and priority sector has lower interest rates. Priority sector for banks in India are agriculture and MSMEs. Most loans have floating interest rates and if at all the rate is fixed initially, the rates are usually higher than floating rates. But crucially, all these rates are interlinked and they generally tend to increase or decrease together. If a bank increases rate paid on deposits and decreases rate charged on loans , it will eat into its own profit margin. Similarly, if it does the opposite, profit margins may increase in short run but the bank will lose customers to other banks. So, all the different interest rates in the economy are positively (directly) related to each other. So, it is safe to talk of one interest rate to understand how it impacts economy.</p>
+<p>When interest rates rise, loans get expensive and contemporaneously saving in banks become more attractive. These have implications on consumption and investment in the economy. Consumers will consume less and save more. Businesses will not take loans and invest in new projects. The demand for total goods in the economy goes down and thereby total production goes down. For every interest rate, there is an equilibrium level of output (Exactly what students of macroeconomics learn as the IS curve). Also, as interest rates rise the money supply in the economy falls and inflation also falls (How this happens is explained in <a href="../../../blog/posts/inflation-is-a-good-thing/index.html">Part 1</a> of the article). Additionally, changes in interest rates have a direct effect on the valuation of financial assets and their expected returns. So, interest rates impact the consumption and investment decisions of households and firms. Those decisions in turn have consequences for gross domestic product (GDP) growth, employment, and inflation.</p>
+</section>
+<section id="but-isnt-my-loan-rate-decided-by-my-bank-and-not-the-central-bank" class="level2">
+<h2 class="anchored" data-anchor-id="but-isnt-my-loan-rate-decided-by-my-bank-and-not-the-central-bank">But, isn’t my loan rate decided by my bank and not the central bank ?</h2>
+<p>There is a tiny wrinkle left that needs ironing out. It is that the interest rates on any deposit/loan is decided by the individual bank and not central bank directly. What then is the central bank doing when we say that it controls interest rates? The central bank controls rates like repo rate, reverse repo rate and bank rate. These rates are linked to how much a central bank charges on the money commercial banks borrow from it and how much interest it pays. Remember that commercial banks are expected to keep a percentage of the deposits they receive as reserves before lending out the rest. This is mandated so that banks don’t lend excessively that it doesn’t have money to pay back depositors. In the process of <a href="https://www.toppr.com/guides/business-economics-cs/money-and-banking/credit-creation/">credit creation</a> that banks do, when they give out loans by crediting the money into the account of the loan taker it increases the amount of deposits with the bank as well. Commensurately, the amount of money the commercial bank has to keep as reserve with the central bank increases as it is always a percentage of the deposits. Many times, commercial banks end up having to borrow from central bank to maintain the reserve in accordance to changing deposits. As repo rates increase, the cost to commercial banks of maintaining reserves with RBI increase and the cost of lending out money to people increase. As a result, they increase the interest rates they charge from debtors to maintain their profits. This means that there is reduction in loans taken out, reduction in investments and a reduction in the speed of money supply increase in the economy.</p>
+</section>
+<section id="monetary-policy-transmission" class="level2">
+<h2 class="anchored" data-anchor-id="monetary-policy-transmission">Monetary Policy Transmission</h2>
+<p>If the central bank does not directly set the interest rate that influences the individual consumer/firms’s decision which in turn impacts the economy, then how does monetary policy impact me or the economy? This brings us to the question introduced in the initial paragraph; how does a change of 0.25% in a repo rate impact the whole trillion dollar economy. I first came across this question when Prof.&nbsp;Viral Acharya relayed it as a question he faced from his engineer friends. He goes on to call this a question of monetary policy transmission. How certain can the central bank be that their high and mighty decision to change a rate will have an impact on the common man or the economy as a whole.</p>
+<p>The short answer is that there is no certainty. In fact, in India the monetary policy statements mention the problem of banks not responding quickly enough by cutting interest rates as a response to the RBI cutting repo rates. It is seen that banks are quick to hike rates charged on loans when RBI hikes its rates, but are not quick to pass on benefits in the event of a rate cut. The speed with which banks respond also varies. It is seen that the State Bank of India is generally the first to alter its rates in response to monetary policy and other banks follow suit. In order to tackle this problem the <a href="https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=48070">RBI mandated</a> that from October 1 2019, certain types of loans offered by banks will charge an interest rate linked to some external benchmark (like the repo rate or T-bill yield) so that any change to the external benchmark will result in change in the rate of interest on loans.</p>
+</section>
+<section id="will-india-have-negative-interest-rates" class="level2">
+<h2 class="anchored" data-anchor-id="will-india-have-negative-interest-rates">Will India have negative interest rates?</h2>
+<p>As much as whether we will have ever have zero or negative interest rates; the much <a href="https://www.japantimes.co.jp/news/2019/08/14/business/negative-rate-policy-work/">cited negative interest rates in Japan</a> were actually rates offered by Central bank to commercial banks on the reserves the banks kept with the central bank. So, commercial banks had to pay the central bank if they had to keep reserves (in excess than stipulated by CRR) with the central bank. It was never that individual depositors had to pay the bank to keep money in the bank in Japan. Another instance of negative interest rates is in Europe where the European Central Bank started charging negative interest rates to commercial banks for the excess money kept with the central bank in 2014. As a response, the commercial banks in Germany <a href="https://www.ft.com/content/ac44f7a0-2d6c-11ea-bc77-65e4aa615551">did pass on negative rates</a> to retail consumers. Then again, the rates were charged only from large retail savers with deposits greater than 50,000 euros or corporate clients. Charging negative rates onto smaller deposits will have severe political repercussions and therefore there is strong reluctance from policy makers towards such a move.</p>
+<p>Having said that, the general trend in India over the years has been of falling interest rates in the economy. Ignoring short term jumps and falls in the rates offered by banks, interest rates have generally fallen. We might as well never see double digit interest rates on FDs, which was quite common upto 10 years back in India. Even if rates are bumped up to curb inflation at some point, the lesson from developed nations is that eventually rates of interest will be low but positive. So you cannot get rich by just investing in Fixed Deposits, but it can help preserve your purchasing power unless something dramatic happens with inflation.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In conclusion, monetary policy impacts us, although not always directly. One by changing the interest rates we get on our deposits or are charged on the loans we may be impacted. Secondly there is a second order impact on prices from interest rates. Lastly, by influencing the economy in general, it impacts income and employment for everyone to some extent.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/sebinbn\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Sebin Bapty Nidhiri</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="mailto:sbnidhiri@uh.edu">
+<p>Email</p>
+</a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

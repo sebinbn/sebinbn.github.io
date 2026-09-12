@@ -1,0 +1,40 @@
+---
+title: Research
+toc: false
+---
+
+## Working Papers {#h.rn5claad0ah9}
+
+### Impact of Foreign Ownership of Bonds on the Mexican Yield Curve
+
+**Job Market Paper** · [Read the paper](https://drive.google.com/file/d/1cpxxXN2r5Y5-S-2Btk-QikaQkdYNvtCB/view?usp=sharing)
+
+**Abstract:** This paper finds that inflow of foreign capital to local currency denominated government bonds in Mexico reduced long term yields, but also reduced monetary policy transmission to the short end of the government bond yield curve, showing that foreign capital is a double-edged sword for Mexico. Non-parametric kernel weighted estimation of a time varying VAR captures changing monetary policy transmission over time. The empirical result is explained with a model of financial markets with heterogeneous financial intermediaries, who source funds short-term and invest in long-term bonds. The heterogeneity is in the source of funds and can be thought of as global institutions who access funds at a global interest rate and domestic institutions accessing funds at the policy rate. Global institution’s demand for long term bonds is unresponsive to changes in the domestic policy rate, reducing the response of domestic yields to changes in the policy rate.
+
+### Impact of India's Special OMOs on the Yield Curve: An Intervention analysis and Event Study
+
+[Read the paper](https://drive.google.com/file/d/1qtkFyKzrZkCZTfub2MMj4mzg0TTxKbHQ/view?usp=sharing)
+
+**Abstract:** The Reserve Bank of India (RBI) started a monetary policy in December 2019 called Special OMOs. The RBI has conducted 24 such Special OMO auctions between December 2019 and May 2021 with the objective of flattening the yield curve. This paper uses event studies and intervention analysis and finds that Special OMO announcements reduced the slope of the Indian government bond yield curve by 79.8 bps from December 2019 until May 2021. It is also found that this change in slope is driven by changes in the short end of the yield curve combined with no change at the long end. This is explained theoretically by combining Market Segmentation hypothesis and Euler equations. Further analysis of individual announcements show that only a few of the Special OMO announcements resulted in significant changes in the yields and yield curve slope.
+
+### Policy Rule Evaluation for the Fed’s Strategy Review
+
+Joint with [David Papell](https://uh.edu/~dpapell/) and [Swati Singh](https://sites.google.com/view/swatisingh-com/home) · [Read the paper on SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5225304)
+
+**Abstract:** The Federal Reserve Board started a strategy review at the beginning of 2025 and intends to complete by late summer of 2025. After its only previous review, the Federal Open Market Committee adopted a far-reaching Revised Statement on Longer-Run Goals and Monetary Policy Strategy in August 2020. We analyze and develop policy rules that are either in accord with the original 2012 statement or inspired by the revised 2020 statement and use the rules to evaluate monetary policy using the Federal Reserve Board/United States model. We evaluate policy rules categorized by traditional, shortfalls, Asymmetric Coefficient Inflation Targeting, and Asymmetric Target Inflation Targeting versions of non-inertial and inertial Taylor and balanced approach rules. Economic performance is better with balanced approach rules than with Taylor rules, worse with shortfalls rules than with traditional rules, better with inertial rules than with non-inertial rules, and better with the two asymmetric inflation targeting rules than with traditional rules.
+
+## Other Research {#h.z9ez6axa8bc}
+
+### Work In Progress {#h.ix4usy3kl5gl}
+
+- [The Taylor Curve, the Taylor Rule, and the Inflation-Output Variability Tradeoff](https://drive.google.com/file/d/1h1lVXucNnSH3kq5uy0cAZEKyURHXvglg/view?usp=drive_link) (joint with David Papell and Swati Singh)
+
+### Permanent Working Paper {#h.or8cofj3xrfh}
+
+- Moving South: Comparative Analysis of the Patterns of Migration into South Indian States ([slides](https://drive.google.com/file/d/1IyCuNhlVV60nUW2V5iWjn9sBKha0mPYf/view?usp=sharing))
+
+### Publications {#h.495uu1fxjcuh}
+
+- Nayak, S., & Nidhiri, S. B. (2019). [From Rivalry to Antipathy Amid Sports Enthusiasts in Individual Sports: A Case of the Seles-Graf Rivalry](https://www.igi-global.com/chapter/from-rivalry-to-antipathy-amid-sports-enthusiasts-in-individual-sports/225530). In *Understanding Rivalry and Its Influence on Sports Fans* (pp. 114–134). IGI Global.
+- Nidhiri, S. B., & Saxena, S. (2019). [Social Media Analytics for Maintaining Financial Stability](https://www.igi-global.com/chapter/social-media-analytics-for-maintaining-financial-stability/218683). In *Maintaining Financial Stability in Times of Risk and Uncertainty* (pp. 219–242). IGI Global.
+- Goswami, P., Liongs, B. & Nidhiri, S.B. (2016). Report on Citizen Monitoring of PMGSY Roads. Public Affairs Centre.

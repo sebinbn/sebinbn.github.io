@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Continuous Compound Interest Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f5f7fa;
+      color: #202124;
+    }
+
+    .calculator {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 28px;
+      background-color: #ffffff;
+      border: 1px solid #dadce0;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .formula {
+      margin-top: 0;
+      margin-bottom: 24px;
+      text-align: center;
+      color: #5f6368;
+      font-size: 17px;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #bdc1c6;
+      border-radius: 7px;
+      font-size: 16px;
+    }
+
+    input:focus {
+      border-color: #1a73e8;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.15);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 4px;
+      padding: 13px;
+      border: none;
+      border-radius: 7px;
+      background-color: #1a73e8;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1557b0;
+    }
+
+    .error {
+      display: none;
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 7px;
+      background-color: #fce8e6;
+      color: #b3261e;
+      text-align: center;
+    }
+
+    .result {
+      display: none;
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 10px;
+      background-color: #e8f0fe;
+      text-align: center;
+    }
+
+    .result-label {
+      margin-bottom: 6px;
+      color: #5f6368;
+      font-size: 15px;
+    }
+
+    .final-value {
+      margin-bottom: 10px;
+      color: #174ea6;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .calculation {
+      margin: 5px 0;
+      color: #3c4043;
+      line-height: 1.5;
+    }
+
+    .note {
+      margin-top: 20px;
+      color: #5f6368;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    button:focus-visible, input:focus-visible { outline: 3px solid #a34e0d; outline-offset: 3px; }
+    .final-value, .calculation { overflow-wrap: anywhere; }
+    @media (max-width: 400px) { body { padding: 8px; } .calculator { padding: 18px; } }
+  </style>
+</head>
+
+<body>
+
+  <div class="calculator">
+    <h2>Continuous Compound Interest Calculator</h2>
+
+    <p class="formula">
+      Final amount = P × e<sup>rt</sup>
+    </p>
+
+    <div class="input-group">
+      <label for="principal">Initial amount</label>
+      <input
+        type="number"
+        id="principal"
+        min="0"
+        step="0.01"
+        value="100"
+        placeholder="For example, 100"
+      >
+    </div>
+
+    <div class="input-group">
+      <label for="rate">Annual interest rate (%)</label>
+      <input
+        type="number"
+        id="rate"
+        step="0.01"
+        value="10"
+        placeholder="For example, 10"
+      >
+    </div>
+
+    <div class="input-group">
+      <label for="years">Time in years</label>
+      <input
+        type="number"
+        id="years"
+        min="0"
+        step="0.1"
+        value="10"
+        placeholder="For example, 10"
+      >
+    </div>
+
+    <button type="button" onclick="calculateInterest()">
+      Calculate final value
+    </button>
+
+    <div class="error" id="errorMessage" role="alert"></div>
+
+    <div class="result" id="result" aria-live="polite">
+      <div class="result-label">Final value</div>
+
+      <div class="final-value" id="finalValue"></div>
+
+      <p class="calculation" id="calculation"></p>
+
+      <p class="calculation" id="interestEarned"></p>
+    </div>
+
+    <p class="note">
+      This calculator assumes that the stated annual interest rate remains
+      constant and that interest is compounded continuously.
+    </p>
+  </div>
+
+  <script>
+    function formatCurrency(value) {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD"
+      }).format(value);
+    }
+
+    function calculateInterest() {
+      const principal = Number(
+        document.getElementById("principal").value
+      );
+
+      const annualRatePercent = Number(
+        document.getElementById("rate").value
+      );
+
+      const years = Number(
+        document.getElementById("years").value
+      );
+
+      const resultBox = document.getElementById("result");
+      const errorBox = document.getElementById("errorMessage");
+
+      resultBox.style.display = "none";
+      errorBox.style.display = "none";
+
+      if (["principal", "rate", "years"].some(id => document.getElementById(id).value.trim() === "")) {
+        showError("Please enter a number in every field.");
+        return;
+      }
+
+      if (
+        !Number.isFinite(principal) ||
+        !Number.isFinite(annualRatePercent) ||
+        !Number.isFinite(years)
+      ) {
+        showError("Please enter a number in every field.");
+        return;
+      }
+
+      if (principal < 0) {
+        showError("The initial amount cannot be negative.");
+        return;
+      }
+
+      if (years < 0) {
+        showError("Time in years cannot be negative.");
+        return;
+      }
+
+      const annualRate = annualRatePercent / 100;
+
+      // Continuous compound interest formula:
+      // A = P × e^(rt)
+      const finalAmount =
+        principal * Math.exp(annualRate * years);
+
+      if (!Number.isFinite(finalAmount)) {
+        showError(
+          "These inputs produce a value that is too large to display."
+        );
+        return;
+      }
+
+      const interest = finalAmount - principal;
+
+      document.getElementById("finalValue").textContent =
+        formatCurrency(finalAmount);
+
+      document.getElementById("calculation").innerHTML =
+        formatCurrency(principal) +
+        " × e<sup>(" +
+        annualRate.toFixed(4) +
+        " × " +
+        years +
+        ")</sup>";
+
+      document.getElementById("interestEarned").textContent =
+        "Interest earned: " + formatCurrency(interest);
+
+      resultBox.style.display = "block";
+    }
+
+    function showError(message) {
+      const errorBox = document.getElementById("errorMessage");
+      errorBox.textContent = message;
+      errorBox.style.display = "block";
+    }
+
+    // Display a result when the calculator first loads.
+    calculateInterest();
+  </script>
+
+</body>
+</html>

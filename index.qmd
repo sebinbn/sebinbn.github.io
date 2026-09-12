@@ -1,0 +1,32 @@
+---
+title: Sebin Bapty Nidhiri
+---
+
+::: {.home-intro}
+::: {}
+::: {.role}
+Instructional Assistant Professor · University of Houston
+:::
+
+I am an empirical macroeconomist with expertise in time series econometrics, currently working as an Instructional Assistant Professor at University of Houston. I completed my PhD at the Department of Economics at University of Houston in May 2026.
+
+**Research interests:** Macro-finance, Time Series Econometrics, Monetary Economics.
+
+[sbnidhiri@uh.edu](mailto:sbnidhiri@uh.edu)
+
+::: {.quick-links}
+[Curriculum vitae](cv/index.qmd)
+[Job market paper](https://drive.google.com/file/d/1cpxxXN2r5Y5-S-2Btk-QikaQkdYNvtCB/view)
+[Video bio](https://youtu.be/hefahX7pWPw?si=ecof2UCSY04mRAiF)
+:::
+
+<div class="social-links">
+<a href="https://github.com/sebinbn" aria-label="GitHub" title="GitHub"><i class="bi bi-github" aria-hidden="true"></i></a>
+<a href="https://www.linkedin.com/in/sebinbn/" aria-label="LinkedIn" title="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+</div>
+:::
+
+::: {}
+![](/images/homePortrait.jpg){fig-alt="Portrait of Sebin Bapty Nidhiri wearing a suit."}
+:::
+:::

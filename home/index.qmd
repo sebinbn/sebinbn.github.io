@@ -1,0 +1,9 @@
+---
+title: Home
+include-in-header:
+  text: |
+    <meta http-equiv="refresh" content="0; url=../">
+    <link rel="canonical" href="https://sebinbn.github.io/">
+---
+
+[Continue to Sebin Bapty Nidhiri's home page](../index.qmd).

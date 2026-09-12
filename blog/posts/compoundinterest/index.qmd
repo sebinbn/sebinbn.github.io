@@ -1,0 +1,64 @@
+---
+title: "How powerful is compound interest, really ?"
+author: Sebin Bapty Nidhiri
+categories: [Mathematics, Compound interest]
+description: "Can compounding frequently make money grow infinitely ? Find out how the answer leads to a mathematical constant."
+---
+
+Celebrity investor Warren Buffett called compound interest the "eighth wonder of the world." Most personal finance advice includes a reiteration of this power of compounding. How powerful is compounding, really? Can it make your money grow infinitely?
+
+This is a question that has been around for a while, and the answer leads us to a famous mathematical constant.
+
+## A thought experiment
+
+Let's do a thought experiment. You have \$100 to invest, and a banker offers a plan that gives you \$200, or 100% return, after 10 years. Let's try if compounding can make you more than that in 10 years. How about redeeming your investment at the end of 5 years and then reinvesting it for another 5 years.
+
+Given that you are holding the money in the bank for only half the time, the banker offers you half what he initially offered, 100%  ÷ 2 = 50% return for 5 years. Then, the \$100 after 5 years becomes
+
+\$100 × (1 + 50%) = \$150
+
+You reinvest the \$150 for another 5 years, which at the end of the 10th year gives you
+
+\$150 × (1 + 50%) = \$225
+
+Voila! You made \$25 more because you reinvested after 5 years, by earning interest on the interest you had already earned. What if you instead keep reinvesting annually? Wouldn't compounding make you even more ? Equivalent to offering 100% after 10 years, banker says they can offer you 100% ÷ 10 = 10% every year. If you take that offer, you will have
+
+\$100 × (1 + 10%) = \$110
+
+at the end of the first year. Reinvesting that gives
+
+\$110 × (1 + 10%) = \$121
+
+which, reinvested for another year, becomes
+
+\$121 × (1 + 10%) = \$133.10
+
+Continuing this for 10 years, you will have
+
+\$100 × (1 + 10%)^10 = \$100 × 1.1^10 = \$259.37
+
+Compounding for the win! You made \$59.37 more with annual compounding compared to no compounding. Does this mean that if you keep reinvesting and compounding at shorter and shorter intervals, you could make an infinite amount of money? Suppose instead that you reinvest every month. The banker now offers 100% ÷ 120 = 0.8333% every month. After 10 years, your money becomes
+
+\$100 × (1 + 0.833%)^120 = \$270.48
+
+That is \$70.48 more, but only \$11.11 more than compounding annually. The benefit of monthly compounding is only slightly higher than compounding annually. What if you reinvest every day ? You will get a daily return of 100% ÷ 3650 = 0.027%. Compounding daily for 10 years gives
+
+\$100 × (1 + 1/3650)^3650 = \$271.75
+
+Going from monthly to daily compounding only gave us \$1.27 more. There is a limit to how much compound interest can multiply an initial investment. This limit will be the mathematical limit of
+
+\$100 × (1 + 1/n)^n as n becomes larger and larger. The limit of (1 + 1/n)^n  is the famous Euler number, e = 2.718281828...
+
+So, no matter how frequently you compound, investing \$100 for 10 years at a return of 10\$ per year can yield a maximum of \$100 × e = \$271.83. Generally, the final amount from continuous compounding can be calculated as
+
+Final Value = Initial Principal * e ^(rt) .
+
+In fact, the mathematician Jacob Bernoulli, discovered the Euler number when doing calculations with the compound interest. This number also appears in many other settings, like the normal distribution in statistics, or sigmoid function used in neural networks. How interesting that mathematics underlying many varied things are connected !
+
+## Find the maximum compounding can make
+
+Are you interested in calculating the amount of return that continuous compounding can make for interest rates of your choice ? Use the widget below to check for yourself
+
+<iframe src="../../../apps/compound-interest/calculator.html" title="Continuous compound interest calculator" class="compound-calculator" sandbox="allow-scripts"></iframe>
+
+[Open the calculator on its own](../../../apps/compound-interest/calculator.html).

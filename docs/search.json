@@ -1,0 +1,219 @@
+[
+  {
+    "objectID": "global-debt-flows/index.html",
+    "href": "global-debt-flows/index.html",
+    "title": "Global debt flows",
+    "section": "",
+    "text": "Visualise foreign ownership of government bonds around the world using IMF’s CPIS data.\nOpen the Shiny app\nThe app is written in Shiny for R. Get the code to reproduce it locally."
+  },
+  {
+    "objectID": "blog/posts/interest-rates/index.html",
+    "href": "blog/posts/interest-rates/index.html",
+    "title": "All things Money (Part 2) – Who fixes my Interest Rate?",
+    "section": "",
+    "text": "A two part article on understanding money and monetary policy\nPart 1 – Inflation is a good thing\nToday people are worried about falling interest rates and rising prices. Senior citizens, in particular are concerned that their Fixed Deposits no longer give them the requisite income to maintain their standard of living. Salaried people are worried about the rising prices which in effect reduce the purchasing power of their salaries. While these may seem disparate concerns, there is a common thread that runs through both and which determines both; Monetary Policy.\nYou have most likely heard of it and even if you think you haven’t, let me assure you that you have. Let me give you an example. When you hear in the news that “RBI cuts repo rate by 0.25%”, that is an example of monetary policy. India has recently moved to a monetary policy regime of ‘inflation targeting’ and has set up a monetary policy committee comprising of central bank officials and academic experts. This article aims to answer questions like: ‘What is monetary policy and how does it impact me?’, ‘How does changing the repo rate by a minuscule 0.25% impact a trillion dollar large economy?’; ‘Will India eventually go towards zero interest rates or negative interest rates as has been the case in many developed countries?’"
+  },
+  {
+    "objectID": "blog/posts/interest-rates/index.html#what-is-monetary-policy",
+    "href": "blog/posts/interest-rates/index.html#what-is-monetary-policy",
+    "title": "All things Money (Part 2) – Who fixes my Interest Rate?",
+    "section": "What is Monetary Policy ?",
+    "text": "What is Monetary Policy ?\nHaving understood money supply and prices in part 1 of this series, let us now bring in to the discussion interest rates and also understand monetary policy.\nMonetary Policy are measures taken (usually by a central bank) to regulate the amount of money circulating in the economy. Money supply can be regulated in different ways like open market operations, changing reserve requirements, changing rates (bank rate, repo & reverse repo rate), moral suasion etc. The last method is known as a qualitative method while the others are quantitative. Quantitative methods regulate the amount of total credit in the economy while qualitative are aimed to regulate specific type of credit in the economy (like the recent 2020 February monetary policy measures to improve credit to auto, MSMEs and residential housing loans). The choice of monetary policy instrument used to regulate money supply has varied over time globally; sometimes thanks to the work of economists as they improve their own understanding of the workings of monetary policy or at other times necessitated by some crisis the world or country faces."
+  },
+  {
+    "objectID": "blog/posts/interest-rates/index.html#interest-rates-and-economy",
+    "href": "blog/posts/interest-rates/index.html#interest-rates-and-economy",
+    "title": "All things Money (Part 2) – Who fixes my Interest Rate?",
+    "section": "Interest rates and economy",
+    "text": "Interest rates and economy\nAs mentioned earlier, there are various means by which a central bank can impact money supply and thereby inflation and growth. Countries across the world have and continue to use varied measures for the same. But now the most popular way around the world to implement monetary policy is to control interest rates. In reality, there are different interest rates in any economy. There are different rates offered by banks on deposits and other rates charged from loan takers. These rates also vary on different kind of deposits/loans and also from bank to bank. Loans to finance consumption get charged a higher rate and priority sector has lower interest rates. Priority sector for banks in India are agriculture and MSMEs. Most loans have floating interest rates and if at all the rate is fixed initially, the rates are usually higher than floating rates. But crucially, all these rates are interlinked and they generally tend to increase or decrease together. If a bank increases rate paid on deposits and decreases rate charged on loans , it will eat into its own profit margin. Similarly, if it does the opposite, profit margins may increase in short run but the bank will lose customers to other banks. So, all the different interest rates in the economy are positively (directly) related to each other. So, it is safe to talk of one interest rate to understand how it impacts economy.\nWhen interest rates rise, loans get expensive and contemporaneously saving in banks become more attractive. These have implications on consumption and investment in the economy. Consumers will consume less and save more. Businesses will not take loans and invest in new projects. The demand for total goods in the economy goes down and thereby total production goes down. For every interest rate, there is an equilibrium level of output (Exactly what students of macroeconomics learn as the IS curve). Also, as interest rates rise the money supply in the economy falls and inflation also falls (How this happens is explained in Part 1 of the article). Additionally, changes in interest rates have a direct effect on the valuation of financial assets and their expected returns. So, interest rates impact the consumption and investment decisions of households and firms. Those decisions in turn have consequences for gross domestic product (GDP) growth, employment, and inflation."
+  },
+  {
+    "objectID": "blog/posts/interest-rates/index.html#but-isnt-my-loan-rate-decided-by-my-bank-and-not-the-central-bank",
+    "href": "blog/posts/interest-rates/index.html#but-isnt-my-loan-rate-decided-by-my-bank-and-not-the-central-bank",
+    "title": "All things Money (Part 2) – Who fixes my Interest Rate?",
+    "section": "But, isn’t my loan rate decided by my bank and not the central bank ?",
+    "text": "But, isn’t my loan rate decided by my bank and not the central bank ?\nThere is a tiny wrinkle left that needs ironing out. It is that the interest rates on any deposit/loan is decided by the individual bank and not central bank directly. What then is the central bank doing when we say that it controls interest rates? The central bank controls rates like repo rate, reverse repo rate and bank rate. These rates are linked to how much a central bank charges on the money commercial banks borrow from it and how much interest it pays. Remember that commercial banks are expected to keep a percentage of the deposits they receive as reserves before lending out the rest. This is mandated so that banks don’t lend excessively that it doesn’t have money to pay back depositors. In the process of credit creation that banks do, when they give out loans by crediting the money into the account of the loan taker it increases the amount of deposits with the bank as well. Commensurately, the amount of money the commercial bank has to keep as reserve with the central bank increases as it is always a percentage of the deposits. Many times, commercial banks end up having to borrow from central bank to maintain the reserve in accordance to changing deposits. As repo rates increase, the cost to commercial banks of maintaining reserves with RBI increase and the cost of lending out money to people increase. As a result, they increase the interest rates they charge from debtors to maintain their profits. This means that there is reduction in loans taken out, reduction in investments and a reduction in the speed of money supply increase in the economy."
+  },
+  {
+    "objectID": "blog/posts/interest-rates/index.html#monetary-policy-transmission",
+    "href": "blog/posts/interest-rates/index.html#monetary-policy-transmission",
+    "title": "All things Money (Part 2) – Who fixes my Interest Rate?",
+    "section": "Monetary Policy Transmission",
+    "text": "Monetary Policy Transmission\nIf the central bank does not directly set the interest rate that influences the individual consumer/firms’s decision which in turn impacts the economy, then how does monetary policy impact me or the economy? This brings us to the question introduced in the initial paragraph; how does a change of 0.25% in a repo rate impact the whole trillion dollar economy. I first came across this question when Prof. Viral Acharya relayed it as a question he faced from his engineer friends. He goes on to call this a question of monetary policy transmission. How certain can the central bank be that their high and mighty decision to change a rate will have an impact on the common man or the economy as a whole.\nThe short answer is that there is no certainty. In fact, in India the monetary policy statements mention the problem of banks not responding quickly enough by cutting interest rates as a response to the RBI cutting repo rates. It is seen that banks are quick to hike rates charged on loans when RBI hikes its rates, but are not quick to pass on benefits in the event of a rate cut. The speed with which banks respond also varies. It is seen that the State Bank of India is generally the first to alter its rates in response to monetary policy and other banks follow suit. In order to tackle this problem the RBI mandated that from October 1 2019, certain types of loans offered by banks will charge an interest rate linked to some external benchmark (like the repo rate or T-bill yield) so that any change to the external benchmark will result in change in the rate of interest on loans."
+  },
+  {
+    "objectID": "blog/posts/interest-rates/index.html#will-india-have-negative-interest-rates",
+    "href": "blog/posts/interest-rates/index.html#will-india-have-negative-interest-rates",
+    "title": "All things Money (Part 2) – Who fixes my Interest Rate?",
+    "section": "Will India have negative interest rates?",
+    "text": "Will India have negative interest rates?\nAs much as whether we will have ever have zero or negative interest rates; the much cited negative interest rates in Japan were actually rates offered by Central bank to commercial banks on the reserves the banks kept with the central bank. So, commercial banks had to pay the central bank if they had to keep reserves (in excess than stipulated by CRR) with the central bank. It was never that individual depositors had to pay the bank to keep money in the bank in Japan. Another instance of negative interest rates is in Europe where the European Central Bank started charging negative interest rates to commercial banks for the excess money kept with the central bank in 2014. As a response, the commercial banks in Germany did pass on negative rates to retail consumers. Then again, the rates were charged only from large retail savers with deposits greater than 50,000 euros or corporate clients. Charging negative rates onto smaller deposits will have severe political repercussions and therefore there is strong reluctance from policy makers towards such a move.\nHaving said that, the general trend in India over the years has been of falling interest rates in the economy. Ignoring short term jumps and falls in the rates offered by banks, interest rates have generally fallen. We might as well never see double digit interest rates on FDs, which was quite common upto 10 years back in India. Even if rates are bumped up to curb inflation at some point, the lesson from developed nations is that eventually rates of interest will be low but positive. So you cannot get rich by just investing in Fixed Deposits, but it can help preserve your purchasing power unless something dramatic happens with inflation."
+  },
+  {
+    "objectID": "blog/posts/interest-rates/index.html#conclusion",
+    "href": "blog/posts/interest-rates/index.html#conclusion",
+    "title": "All things Money (Part 2) – Who fixes my Interest Rate?",
+    "section": "Conclusion",
+    "text": "Conclusion\nIn conclusion, monetary policy impacts us, although not always directly. One by changing the interest rates we get on our deposits or are charged on the loans we may be impacted. Secondly there is a second order impact on prices from interest rates. Lastly, by influencing the economy in general, it impacts income and employment for everyone to some extent."
+  },
+  {
+    "objectID": "blog/posts/compoundinterest/index.html",
+    "href": "blog/posts/compoundinterest/index.html",
+    "title": "How powerful is compound interest, really ?",
+    "section": "",
+    "text": "Celebrity investor Warren Buffett called compound interest the “eighth wonder of the world.” Most personal finance advice includes a reiteration of this power of compounding. How powerful is compounding, really? Can it make your money grow infinitely?\nThis is a question that has been around for a while, and the answer leads us to a famous mathematical constant."
+  },
+  {
+    "objectID": "blog/posts/compoundinterest/index.html#a-thought-experiment",
+    "href": "blog/posts/compoundinterest/index.html#a-thought-experiment",
+    "title": "How powerful is compound interest, really ?",
+    "section": "A thought experiment",
+    "text": "A thought experiment\nLet’s do a thought experiment. You have $100 to invest, and a banker offers a plan that gives you $200, or 100% return, after 10 years. Let’s try if compounding can make you more than that in 10 years. How about redeeming your investment at the end of 5 years and then reinvesting it for another 5 years.\nGiven that you are holding the money in the bank for only half the time, the banker offers you half what he initially offered, 100%  ÷ 2 = 50% return for 5 years. Then, the $100 after 5 years becomes\n$100 × (1 + 50%) = $150\nYou reinvest the $150 for another 5 years, which at the end of the 10th year gives you\n$150 × (1 + 50%) = $225\nVoila! You made $25 more because you reinvested after 5 years, by earning interest on the interest you had already earned. What if you instead keep reinvesting annually? Wouldn’t compounding make you even more ? Equivalent to offering 100% after 10 years, banker says they can offer you 100% ÷ 10 = 10% every year. If you take that offer, you will have\n$100 × (1 + 10%) = $110\nat the end of the first year. Reinvesting that gives\n$110 × (1 + 10%) = $121\nwhich, reinvested for another year, becomes\n$121 × (1 + 10%) = $133.10\nContinuing this for 10 years, you will have\n$100 × (1 + 10%)^10 = $100 × 1.1^10 = $259.37\nCompounding for the win! You made $59.37 more with annual compounding compared to no compounding. Does this mean that if you keep reinvesting and compounding at shorter and shorter intervals, you could make an infinite amount of money? Suppose instead that you reinvest every month. The banker now offers 100% ÷ 120 = 0.8333% every month. After 10 years, your money becomes\n$100 × (1 + 0.833%)^120 = $270.48\nThat is $70.48 more, but only $11.11 more than compounding annually. The benefit of monthly compounding is only slightly higher than compounding annually. What if you reinvest every day ? You will get a daily return of 100% ÷ 3650 = 0.027%. Compounding daily for 10 years gives\n$100 × (1 + 1/3650)^3650 = $271.75\nGoing from monthly to daily compounding only gave us $1.27 more. There is a limit to how much compound interest can multiply an initial investment. This limit will be the mathematical limit of\n$100 × (1 + 1/n)^n as n becomes larger and larger. The limit of (1 + 1/n)^n  is the famous Euler number, e = 2.718281828…\nSo, no matter how frequently you compound, investing $100 for 10 years at a return of 10$ per year can yield a maximum of $100 × e = $271.83. Generally, the final amount from continuous compounding can be calculated as\nFinal Value = Initial Principal * e ^(rt) .\nIn fact, the mathematician Jacob Bernoulli, discovered the Euler number when doing calculations with the compound interest. This number also appears in many other settings, like the normal distribution in statistics, or sigmoid function used in neural networks. How interesting that mathematics underlying many varied things are connected !"
+  },
+  {
+    "objectID": "blog/posts/compoundinterest/index.html#find-the-maximum-compounding-can-make",
+    "href": "blog/posts/compoundinterest/index.html#find-the-maximum-compounding-can-make",
+    "title": "How powerful is compound interest, really ?",
+    "section": "Find the maximum compounding can make",
+    "text": "Find the maximum compounding can make\nAre you interested in calculating the amount of return that continuous compounding can make for interest rates of your choice ? Use the widget below to check for yourself\n\n\nOpen the calculator on its own."
+  },
+  {
+    "objectID": "apps/index.html",
+    "href": "apps/index.html",
+    "title": "Apps",
+    "section": "",
+    "text": "Visualise foreign ownership of government bonds using IMF’s CPIS data. This Shiny app is written in R.\nOpen the Shiny app · Source code"
+  },
+  {
+    "objectID": "apps/index.html#global-debt-flows",
+    "href": "apps/index.html#global-debt-flows",
+    "title": "Apps",
+    "section": "",
+    "text": "Visualise foreign ownership of government bonds using IMF’s CPIS data. This Shiny app is written in R.\nOpen the Shiny app · Source code"
+  },
+  {
+    "objectID": "apps/index.html#continuous-compound-interest-calculator",
+    "href": "apps/index.html#continuous-compound-interest-calculator",
+    "title": "Apps",
+    "section": "Continuous compound interest calculator",
+    "text": "Continuous compound interest calculator\nCalculate the final value of an initial investment with continuous compounding.\nRead the article and use the calculator · Open the calculator"
+  },
+  {
+    "objectID": "research/index.html",
+    "href": "research/index.html",
+    "title": "Research",
+    "section": "",
+    "text": "Job Market Paper · Read the paper\nAbstract: This paper finds that inflow of foreign capital to local currency denominated government bonds in Mexico reduced long term yields, but also reduced monetary policy transmission to the short end of the government bond yield curve, showing that foreign capital is a double-edged sword for Mexico. Non-parametric kernel weighted estimation of a time varying VAR captures changing monetary policy transmission over time. The empirical result is explained with a model of financial markets with heterogeneous financial intermediaries, who source funds short-term and invest in long-term bonds. The heterogeneity is in the source of funds and can be thought of as global institutions who access funds at a global interest rate and domestic institutions accessing funds at the policy rate. Global institution’s demand for long term bonds is unresponsive to changes in the domestic policy rate, reducing the response of domestic yields to changes in the policy rate.\n\n\n\nRead the paper\nAbstract: The Reserve Bank of India (RBI) started a monetary policy in December 2019 called Special OMOs. The RBI has conducted 24 such Special OMO auctions between December 2019 and May 2021 with the objective of flattening the yield curve. This paper uses event studies and intervention analysis and finds that Special OMO announcements reduced the slope of the Indian government bond yield curve by 79.8 bps from December 2019 until May 2021. It is also found that this change in slope is driven by changes in the short end of the yield curve combined with no change at the long end. This is explained theoretically by combining Market Segmentation hypothesis and Euler equations. Further analysis of individual announcements show that only a few of the Special OMO announcements resulted in significant changes in the yields and yield curve slope.\n\n\n\nJoint with David Papell and Swati Singh · Read the paper on SSRN\nAbstract: The Federal Reserve Board started a strategy review at the beginning of 2025 and intends to complete by late summer of 2025. After its only previous review, the Federal Open Market Committee adopted a far-reaching Revised Statement on Longer-Run Goals and Monetary Policy Strategy in August 2020. We analyze and develop policy rules that are either in accord with the original 2012 statement or inspired by the revised 2020 statement and use the rules to evaluate monetary policy using the Federal Reserve Board/United States model. We evaluate policy rules categorized by traditional, shortfalls, Asymmetric Coefficient Inflation Targeting, and Asymmetric Target Inflation Targeting versions of non-inertial and inertial Taylor and balanced approach rules. Economic performance is better with balanced approach rules than with Taylor rules, worse with shortfalls rules than with traditional rules, better with inertial rules than with non-inertial rules, and better with the two asymmetric inflation targeting rules than with traditional rules."
+  },
+  {
+    "objectID": "research/index.html#h.rn5claad0ah9",
+    "href": "research/index.html#h.rn5claad0ah9",
+    "title": "Research",
+    "section": "",
+    "text": "Job Market Paper · Read the paper\nAbstract: This paper finds that inflow of foreign capital to local currency denominated government bonds in Mexico reduced long term yields, but also reduced monetary policy transmission to the short end of the government bond yield curve, showing that foreign capital is a double-edged sword for Mexico. Non-parametric kernel weighted estimation of a time varying VAR captures changing monetary policy transmission over time. The empirical result is explained with a model of financial markets with heterogeneous financial intermediaries, who source funds short-term and invest in long-term bonds. The heterogeneity is in the source of funds and can be thought of as global institutions who access funds at a global interest rate and domestic institutions accessing funds at the policy rate. Global institution’s demand for long term bonds is unresponsive to changes in the domestic policy rate, reducing the response of domestic yields to changes in the policy rate.\n\n\n\nRead the paper\nAbstract: The Reserve Bank of India (RBI) started a monetary policy in December 2019 called Special OMOs. The RBI has conducted 24 such Special OMO auctions between December 2019 and May 2021 with the objective of flattening the yield curve. This paper uses event studies and intervention analysis and finds that Special OMO announcements reduced the slope of the Indian government bond yield curve by 79.8 bps from December 2019 until May 2021. It is also found that this change in slope is driven by changes in the short end of the yield curve combined with no change at the long end. This is explained theoretically by combining Market Segmentation hypothesis and Euler equations. Further analysis of individual announcements show that only a few of the Special OMO announcements resulted in significant changes in the yields and yield curve slope.\n\n\n\nJoint with David Papell and Swati Singh · Read the paper on SSRN\nAbstract: The Federal Reserve Board started a strategy review at the beginning of 2025 and intends to complete by late summer of 2025. After its only previous review, the Federal Open Market Committee adopted a far-reaching Revised Statement on Longer-Run Goals and Monetary Policy Strategy in August 2020. We analyze and develop policy rules that are either in accord with the original 2012 statement or inspired by the revised 2020 statement and use the rules to evaluate monetary policy using the Federal Reserve Board/United States model. We evaluate policy rules categorized by traditional, shortfalls, Asymmetric Coefficient Inflation Targeting, and Asymmetric Target Inflation Targeting versions of non-inertial and inertial Taylor and balanced approach rules. Economic performance is better with balanced approach rules than with Taylor rules, worse with shortfalls rules than with traditional rules, better with inertial rules than with non-inertial rules, and better with the two asymmetric inflation targeting rules than with traditional rules."
+  },
+  {
+    "objectID": "research/index.html#h.z9ez6axa8bc",
+    "href": "research/index.html#h.z9ez6axa8bc",
+    "title": "Research",
+    "section": "Other Research",
+    "text": "Other Research\n\nWork In Progress\n\nThe Taylor Curve, the Taylor Rule, and the Inflation-Output Variability Tradeoff (joint with David Papell and Swati Singh)\n\n\n\nPermanent Working Paper\n\nMoving South: Comparative Analysis of the Patterns of Migration into South Indian States (slides)\n\n\n\nPublications\n\nNayak, S., & Nidhiri, S. B. (2019). From Rivalry to Antipathy Amid Sports Enthusiasts in Individual Sports: A Case of the Seles-Graf Rivalry. In Understanding Rivalry and Its Influence on Sports Fans (pp. 114–134). IGI Global.\nNidhiri, S. B., & Saxena, S. (2019). Social Media Analytics for Maintaining Financial Stability. In Maintaining Financial Stability in Times of Risk and Uncertainty (pp. 219–242). IGI Global.\nGoswami, P., Liongs, B. & Nidhiri, S.B. (2016). Report on Citizen Monitoring of PMGSY Roads. Public Affairs Centre."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sebin Bapty Nidhiri",
+    "section": "",
+    "text": "Instructional Assistant Professor · University of Houston\n\nI am an empirical macroeconomist with expertise in time series econometrics, currently working as an Instructional Assistant Professor at University of Houston. I completed my PhD at the Department of Economics at University of Houston in May 2026.\nResearch interests: Macro-finance, Time Series Econometrics, Monetary Economics.\nsbnidhiri@uh.edu\n\nCurriculum vitae Job market paper Video bio"
+  },
+  {
+    "objectID": "cv/index.html",
+    "href": "cv/index.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Download my CV (PDF)"
+  },
+  {
+    "objectID": "cv/index.html#video-biography",
+    "href": "cv/index.html#video-biography",
+    "title": "Curriculum Vitae",
+    "section": "Video biography",
+    "text": "Video biography\nWatch my video biography on YouTube."
+  },
+  {
+    "objectID": "teaching/index.html",
+    "href": "teaching/index.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "Time Series Analysis and Forecasting — Fall 2026 · Syllabus\nIntroduction to Economic Data Analysis — Fall 2026 · Syllabus"
+  },
+  {
+    "objectID": "teaching/index.html#h.x0tykybu5ctv",
+    "href": "teaching/index.html#h.x0tykybu5ctv",
+    "title": "Teaching",
+    "section": "",
+    "text": "Time Series Analysis and Forecasting — Fall 2026 · Syllabus\nIntroduction to Economic Data Analysis — Fall 2026 · Syllabus"
+  },
+  {
+    "objectID": "teaching/index.html#h.rljwlwj9azy7",
+    "href": "teaching/index.html#h.rljwlwj9azy7",
+    "title": "Teaching",
+    "section": "Instructor at University of Houston",
+    "text": "Instructor at University of Houston\n\nPrinciples of Microeconomics (undergraduate) — Fall 2024\nLinear Algebra (PhD Math bootcamp) — Summer 2023, Summer 2024"
+  },
+  {
+    "objectID": "teaching/index.html#h.2uy7hcej4uns",
+    "href": "teaching/index.html#h.2uy7hcej4uns",
+    "title": "Teaching",
+    "section": "Assistant Professor at Symbiosis International University, India",
+    "text": "Assistant Professor at Symbiosis International University, India\n\nIntroductory Econometrics (undergraduate) — Fall 2016, Fall 2017 · Syllabus\nStatistics for Economics (undergraduate) — Spring 2017, Spring 2018 · Syllabus\nGrowth theory (undergraduate) — Fall 2020 as a Visiting lecturer · Syllabus"
+  },
+  {
+    "objectID": "teaching/index.html#h.uu24w1rh3chc",
+    "href": "teaching/index.html#h.uu24w1rh3chc",
+    "title": "Teaching",
+    "section": "Teaching Assistant at University of Houston",
+    "text": "Teaching Assistant at University of Houston\n\nEconometrics II (PhD core) — Fall 2023\nEconometrics I (PhD core) — Spring 2023\nQuantitative Economic Analysis (PhD core) — Fall 2022\nTime Series Analysis (undergraduate) — Fall 2021\nPrinciples of Macroeconomics (undergraduate) — Spring 2022\nManagerial Economics (undergraduate) — Fall 2025"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "How powerful is compound interest, really ?\n\n\n\nMathematics\n\nCompound interest\n\n\n\nCan compounding frequently make money grow infinitely ? Find out how the answer leads to a mathematical constant.\n\n\n\n\n\n\n\n\n\n\nAll things Money (Part 2) – Who fixes my Interest Rate?\n\n\n\nEconomics\n\nMonetary policy\n\n\n\nHow monetary policy affects interest rates, borrowing, saving, and the wider economy.\n\n\n\n\n\nApril 24, 2020\n\n\n\n\n\n\n\nAll things Money (Part 1) - Inflation is a Good Thing\n\n\n\nEconomics\n\nMonetary policy\n\n\n\nWhy target positive inflation? An introduction to money, prices, and the costs and benefits of inflation.\n\n\n\n\n\nApril 11, 2020\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/posts/inflation-is-a-good-thing/index.html",
+    "href": "blog/posts/inflation-is-a-good-thing/index.html",
+    "title": "All things Money (Part 1) - Inflation is a Good Thing",
+    "section": "",
+    "text": "A two part article on understanding money and monetary policy\nPart 2 – Who fixes my Interest Rate ?\nAsk anyone and they will tell you that the increasing prices of goods bother them. Don’t we all wish that prices don’t change and stay the same every year, that is have zero inflation? If we had our way, we would want prices to fall, that is deflation. Wouldn’t that make goods cheaper and affordable for everyone? But why do the government and economists dread deflation and why do they target a positive inflation ? Did you know that India has set itself a target inflation of 4% till March 31, 2021? Why do we not set a target of 0% ? Read on to understand how money works and influences prices and economic growth. I also explain with examples why positive inflation is necessary for an economy."
+  },
+  {
+    "objectID": "blog/posts/inflation-is-a-good-thing/index.html#price-determination-why-your-microeconomics-teacher-was-wrong",
+    "href": "blog/posts/inflation-is-a-good-thing/index.html#price-determination-why-your-microeconomics-teacher-was-wrong",
+    "title": "All things Money (Part 1) - Inflation is a Good Thing",
+    "section": "Price Determination – Why your microeconomics teacher was wrong",
+    "text": "Price Determination – Why your microeconomics teacher was wrong\nIn textbook microeconomic models when we learn the law of demand and supply to discover the equilibrium price, that price is not in terms of rupees or dollars but in terms of a numeraire good. So, when the model says that the equilibrium price for a kilogram of apples is say 10, it means that apples are equal in value to 10 units of the numeraire good. The concept of money is absent in these models. Here price changes are a result of changes in demand and supply. While this is what microeconomics teaches us, that is not the case in reality. In reality, the value of apples is expressed in terms of money. So, if the price of a kilogram of apples increases from Rs. 100 to Rs. 120, it could be because of an increase in the relative value of apples due to changes in demand/supply or due a fall in the value of rupees. Note that in recent times we saw the prices of onions shooting through the roof. That was due to change in demand/supply. To be precise, the supply of onions fell as farmers couldn’t harvest onions due to untimely rains in Maharashtra and Karnataka in latter half of 2019.\nBut when we say that the general price level in the economy has increased, it is due to a fall in the value of the currency and has nothing to do with laws of demand and supply. But note that price level refers to an average price level as measured by CPI and is different from prices of individual goods which are measured in rupees. Prices in individual goods are impacted by forces of demand and supply of that good and also by the value of currency. So, your microeconomics teacher wasn’t entirely wrong! But how does the rupee fall in value? Isn’t 1 rupee always 1 rupee?\nWhen we talk of the value of rupee, we are again talking in relative terms. 1 rupee is still 1 rupee but the amount of goods you can get with a rupee, its purchasing power (a.k.a relative value) has reduced. How does that happen? To understand this, let us look at the original function for which money was invented; to help in exchange of goods. Let us take an example.\nSay an economy has two groups of people, consumers and producers. Producers produce bananas and sell them for money while consumers have money and buy bananas with the money. Let us further assume that producers don’t consume and consumers don’t produce. This can be seen as an abstraction from reality; in reality there are many products produced and consumers also produce and producers also consume. Now, in our simple economy, the producers produced 10 bananas and consumers have a total of Rs. 100 with them. The consumers want to have bananas and have no other use for money apart from buying bananas while producers want to have money and have no use for bananas. So, they will engage in exchange and the market forces of demand and supply will set the ideal price to be Rs. 10 per banana (Rs.100 divided by 10 bananas) at which price consumers don’t have any more money (which has no use for them) left and producers have any bananas (which have no use for them) left. So, given the levels of banana production and money supply circulating in the economy, the price level is Rs.10. Say with improvement in production technology, the economy produced 20 bananas but no extra money is put in circulation. Now in the economy that has 20 bananas and Rs. 100, exchange will lead the price to be Rs. 5 per banana. This is deflation. But let’s say the money supply also doubled commensurate with the increase in output, then the economy has Rs.200 and 20 bananas, then price is stable as before at Rs. 10. But if the money supply increased faster than output to say Rs.300, then the price of a banana will be Rs.15 (Rs.300 divided by 20 bananas). Thus when money supply increases faster than growth of output, there is inflation and fall in the value (or purchasing power) of money.\nMonetary policy is basically the function that determines how much money is in circulation in the economy. Now you can appreciate that this is not an easy task; to measure how much gets produced and to match the increase in output, more so when there are international factors also to consider."
+  },
+  {
+    "objectID": "blog/posts/inflation-is-a-good-thing/index.html#isnt-zero-inflation-the-best",
+    "href": "blog/posts/inflation-is-a-good-thing/index.html#isnt-zero-inflation-the-best",
+    "title": "All things Money (Part 1) - Inflation is a Good Thing",
+    "section": "Isn’t zero inflation the best ?",
+    "text": "Isn’t zero inflation the best ?\nNow that we know how money supply relates to prices, shouldn’t we regulate money supply to match output and keep prices stable i.e. have zero inflation ? Amongst economists there are differing views regarding the pros and cons  of inflation, deflation and stable price level. While the dominant economic thought today is that a low level of positive inflation (and not zero inflation) is ideal, I will explain briefly the pros and cons of each.\nDeflation makes goods cheaper and so accessible to more people. Particularly after a sudden rise in prices, a period of deflation can be helpful to correct the price level. But, it makes debt costlier. Say, an entrepreneur borrows Rs.100 to be repaid after a year with 10% interest. He expects to use the loan and produce a good which will fetch him Rs.150. After repaying loan with interest, he will still have a profit of Rs. 40.  Now, suppose the economy is hit with deflation and prices drop which will reduce his profits. In addition, the cost of debt is now higher. Although the cost is fixed at 10% interest rate, the amount of Rs. 110 that he has to repay is now worth more than what Rs. 110 was worth before deflation. This is because purchasing power of money has gone up and the real cost of the loan is higher. So, deflation impacts profits and increases the cost of debt. Businesses naturally dislike both of this. As a consequence, businesses cut down production, lay off workers and eventually a long period of deflation will reduce real GDP and employment. So, deflation is definitely not desirable for businesses and not desirable for workers if deflation persists.\nZero inflation is in fact best for money to serve its purpose as store of value and unit of account. 1 rupee today will be equivalent in purchasing power to 1 rupee a year from now and economists wouldnt have to bother with the headache of calculating real GDP or real costs. Real and nominal costs would be the same. But with zero inflation, there is always a risk of slipping into deflation and money cannot play any useful role to stimulate economic growth. We will see how money stimulates growth as we understand inflation better  in the following paragraph.\nInflation’s cons are popularly discussed in mainstream media and it is of course that goods get expensive troubling consumers and/or workers. But it has its pros too. Building from the earlier example, it can be seen that profits of businesses rise with inflation. While input costs also rise, wages don’t rise as quickly and so inflation rewards businesses with extra profit (But do note that the purchasing power of the profit would have reduced a bit, but there will be a positive net benefit). In addition, it makes debt cheaper. Continuing our earlier example, the business will have to pay back Rs. 110 but the purchasing power of that money has reduced due to inflation and so the real cost of borrowing has gone down for the debtor. Needless to say, businesses love inflation and so does the finance minister.  Businesses will now take credit, expand production, employ more people and GDP will grow. For the finance minister, it gives him freedom to borrow more and spend as inflation will reduce the cost of his borrowing. But hyperinflation is dangerous. If prices rise rapidly, people will lose trust in the currency and it can lead to fall of the entire monetary system as we saw happen in Zimbabwe where people began to use foreign currencies and abandoned the local currency."
+  },
+  {
+    "objectID": "blog/posts/inflation-is-a-good-thing/index.html#conclusion",
+    "href": "blog/posts/inflation-is-a-good-thing/index.html#conclusion",
+    "title": "All things Money (Part 1) - Inflation is a Good Thing",
+    "section": "Conclusion",
+    "text": "Conclusion\nIn summary, a small level of inflation is seen as ideal as it can incentivise entrepreneurs. In our current economic system it is entrepreneurs who create economic growth and employment. So, although inflation is not desirable for fixed income earners and consumers, it is seen as necessary in all economies. So, with positive inflation we are rewarding entrepreneurs; as the dominant thought is that it is entrepreneurs who take an economy forward.\nRead further the second part at Part 2 – Who fixes my Interest Rate ?"
+  },
+  {
+    "objectID": "home/index.html",
+    "href": "home/index.html",
+    "title": "Home",
+    "section": "",
+    "text": "Continue to Sebin Bapty Nidhiri’s home page."
+  }
+]
