@@ -1,0 +1,17 @@
+---
+title: "ECON 3320 grade calculator"
+---
+
+**Introduction to Economic Data Analysis · Fall 2026**
+
+[Syllabus](https://uh.simplesyllabus.com/doc/ydk6g0z5q/Fall-2026-ECON-3320-26029-Introduction-to-Economic-Data-Analysis?mode=view) · [Back to Teaching](../../index.qmd)
+
+Use this calculator to explore tentative grades and plan remaining work. The syllabus and instructor determine your official grade. Scores stay in this browser tab and are cleared when you reload or reset the page.
+
+```{=html}
+<div class="grade-calculator" data-policy="../../grade-policies/fall-2026/econ-3320.txt" data-course="ECON 3320" data-term="Fall 2026">
+  <p class="policy-status" role="status">Loading course grading policy…</p>
+  <noscript>Enable JavaScript to use this calculator.</noscript>
+</div>
+<script src="../../grade-calculator/calculator.js" defer></script>
+```

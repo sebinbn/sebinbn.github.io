@@ -4,8 +4,8 @@ title: Teaching
 
 ## Instructional Assistant Professor at University of Houston {#h.x0tykybu5ctv}
 
-- **Time Series Analysis and Forecasting** — Fall 2026 · [Syllabus](https://uh.simplesyllabus.com/doc/u3q1qx13w/Fall-2026-ECON-4325-26058-Applied-Time-Series-Analysis-and-Forecasting?mode=view)
-- **Introduction to Economic Data Analysis** — Fall 2026 · [Syllabus](https://uh.simplesyllabus.com/doc/ydk6g0z5q/Fall-2026-ECON-3320-26029-Introduction-to-Economic-Data-Analysis?mode=view)
+- **Time Series Analysis and Forecasting** — Fall 2026 · [Syllabus](https://uh.simplesyllabus.com/doc/u3q1qx13w/Fall-2026-ECON-4325-26058-Applied-Time-Series-Analysis-and-Forecasting?mode=view) · [Grade calculator](fall-2026/econ-4325/index.qmd)
+- **Introduction to Economic Data Analysis** — Fall 2026 · [Syllabus](https://uh.simplesyllabus.com/doc/ydk6g0z5q/Fall-2026-ECON-3320-26029-Introduction-to-Economic-Data-Analysis?mode=view) · [Grade calculator](fall-2026/econ-3320/index.qmd)
 
 ## Instructor at University of Houston {#h.rljwlwj9azy7}
 

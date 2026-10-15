@@ -6,6 +6,7 @@ project:
     - cv/index.qmd
     - research/index.qmd
     - teaching/index.qmd
+    - teaching/fall-2026/*/index.qmd
     - apps/index.qmd
     - blog/index.qmd
     - blog/posts/**/*.qmd
@@ -16,6 +17,8 @@ project:
     - files/NidhiriSebin_CV_B_v1.pdf
     - images/homePortrait.jpg
     - images/teaching.jpg
+    - teaching/grade-policies/fall-2026/*.txt
+    - teaching/grade-calculator/calculator.js
 website:
   title: Sebin Nidhiri
   site-url: https://sebinbn.github.io

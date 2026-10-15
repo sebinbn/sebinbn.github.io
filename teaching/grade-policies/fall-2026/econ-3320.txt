@@ -1,0 +1,37 @@
+# EXAMPLE POLICY ONLY: replace all values with the actual syllabus rules.
+# Set policy_status = ready only after verifying the complete policy.
+# Percentages use a 0–100 scale. Lines beginning with # are comments.
+[course]
+code = ECON 3320
+term = Fall 2026
+policy_status = ready
+
+# Weights must total 100. Zero disables a component.
+# Add categories using unique lowercase_keys; exam1 and exam2 are single exams.
+[weights]
+homework = 15
+quizzes = 15
+projects = 0
+participation = 10
+exam1 = 30
+exam2 = 30
+
+# Inclusive minimum scores, highest to lowest; include a minimum of 0.
+# Results are compared without rounding. Display uses two decimal places.
+[grade_cutoffs]
+A = 94
+A- = 90
+B+ = 85
+B = 80
+B- = 76
+C+ = 71
+C = 67
+C- = 64
+D+ = 61
+D = 58
+D- = 55
+F = 0
+
+# Special grading rules are not yet supported. Do not enable this policy
+# if it requires dropped scores, replacement exams, rounding, extra credit,
+# minimum-exam requirements, or other rules this calculator cannot represent.
