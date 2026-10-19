@@ -1,0 +1,69 @@
+---
+title: "Central Limit Theorem Simulator"
+subtitle: "See how repeated random samples produce a sampling distribution of the sample mean."
+format:
+  html:
+    css: simulator.css
+---
+
+```{=html}
+<div id="clt" class="clt">
+  <noscript>Enable JavaScript to draw populations and run the simulator.</noscript>
+  <p class="clt-flow">Population <span aria-hidden="true">→</span> Random Sample <span aria-hidden="true">→</span> Distribution of Sample Means</p>
+  <div class="clt-controls">
+    <label>Population<select id="clt-population">
+      <option value="normal">Normal</option><option value="uniform">Uniform</option>
+      <option value="right" selected>Right-skewed</option><option value="left">Left-skewed</option>
+      <option value="bimodal">Bimodal</option><option value="custom">Custom / Draw Your Own</option>
+    </select></label>
+  </div>
+  <section class="clt-panel" aria-labelledby="clt-heading-pop">
+    <h2 id="clt-heading-pop">1. Population Distribution</h2>
+    <p>Individual observations are drawn independently from this population.</p>
+    <p id="clt-pop-stats" class="clt-stats"></p>
+    <div id="clt-custom" hidden>
+      <p id="clt-draw-help"><strong>Draw your own distribution:</strong> click or drag across the plot to set its height. Touch drawing works too. Your shape is smoothed and normalized when you finish.</p>
+      <button id="clt-clear" type="button" class="clt-secondary">Clear drawing</button>
+      <p id="clt-custom-error" role="status"></p>
+    </div>
+    <svg id="clt-pop-plot" viewBox="0 0 900 240" role="img" aria-labelledby="clt-pop-title clt-pop-desc"><title id="clt-pop-title">Population distribution</title><desc id="clt-pop-desc"></desc></svg>
+  </section>
+  <div class="clt-controls clt-sampling-controls">
+    <label>Sample size (n)<input id="clt-n" type="number" min="1" max="200" step="1" value="5"></label>
+    <label>Samples per batch<select id="clt-batch"><option>10</option><option>100</option><option selected>1000</option><option>5000</option><option>10000</option></select></label>
+    <label>Animation speed<select id="clt-speed"><option value="1" selected>1 sample / second</option><option value="2">2 samples / second</option><option value="5">5 samples / second</option></select></label>
+  </div>
+  <div class="clt-actions">
+    <button id="clt-one" type="button">Draw one sample</button>
+    <button id="clt-many" type="button">Draw many samples</button>
+    <button id="clt-animate" type="button">Start animation</button>
+    <button id="clt-cancel" type="button" hidden>Cancel batch</button>
+    <button id="clt-reset" type="button" class="clt-secondary">Reset results</button>
+  </div>
+  <p id="clt-status" role="status" aria-live="polite">Choose a population and draw a sample to begin.</p>
+  <progress id="clt-progress" value="0" max="100" hidden aria-label="Batch progress"></progress>
+  <p class="clt-connector">↓ Draw n individual observations</p>
+  <section class="clt-panel clt-compact" aria-labelledby="clt-heading-sample">
+    <h2 id="clt-heading-sample">2. Random Sample</h2>
+    <p>Each dot is one observation; the orange diamond marks the sample mean, x̄.</p>
+    <p id="clt-sample-stats" class="clt-stats">No sample drawn yet.</p>
+    <svg id="clt-sample-plot" viewBox="0 0 900 130" role="img" aria-labelledby="clt-sample-title clt-sample-desc"><title id="clt-sample-title">Latest random sample</title><desc id="clt-sample-desc"></desc></svg>
+  </section>
+  <p class="clt-connector">↓ Add one sample mean, x̄, to the distribution below</p>
+  <section class="clt-panel clt-compact" aria-labelledby="clt-heading-means">
+    <h2 id="clt-heading-means">3. Distribution of Sample Means</h2>
+    <p>One entry represents <strong>one entire sample’s mean</strong>, not one individual observation.</p>
+    <p id="clt-means-stats" class="clt-stats"></p>
+    <label class="clt-overlay"><input id="clt-overlay" type="checkbox" checked> Show normal approximation: center μ, spread σ/√n</label>
+    <svg id="clt-means-plot" viewBox="0 0 900 190" role="img" aria-labelledby="clt-means-title clt-means-desc"><title id="clt-means-title">Sampling distribution of the sample mean</title><desc id="clt-means-desc"></desc></svg>
+    <p class="clt-legend"><span class="clt-key-pop">Dashed line: population mean μ</span> · <span class="clt-key-normal">Purple curve: normal approximation</span></p>
+  </section>
+  <div class="clt-explanation">
+    <h2>What changes as you sample?</h2>
+    <p><strong>Larger samples (n)</strong> make sample means less variable: their theoretical standard deviation, called the standard error, is σ/√n. The Central Limit Theorem says that for independent observations from the same population with finite variance, the distribution of sample means becomes approximately normal as n grows—even when the population is not normal. Strong skewness may require larger n; 30 is not a universal threshold.</p>
+    <p><strong>More repetitions</strong> make the sampling histogram clearer. They do not change its theoretical spread or make a small sample size behave like a large one. The purple curve is an approximation to compare against, not a curve fitted to the simulated means.</p>
+    <p>Changing the population or n clears results so different experiments are not mixed. Batch mode skips individual animations. All calculations run in your browser; nothing is uploaded or saved.</p>
+  </div>
+</div>
+<script src="simulator.js" defer></script>
+```
