@@ -31,6 +31,9 @@ main.content { padding-top: 2rem; padding-bottom: 3rem; }
 }
 
 /* Course grade calculators */
+.grade-exam-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+.grade-assumption, .grade-progress { font-size: .95rem; color: var(--muted); }
+.grade-progress { margin-block: .4rem 0; }
 .grade-notice { border-left: 4px solid var(--accent); padding: 1rem; background: #f3f7f8; }
 .grade-policy-tables { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 .grade-table-wrap { overflow-x: auto; }
@@ -38,8 +41,8 @@ main.content { padding-top: 2rem; padding-bottom: 3rem; }
 .grade-component { border: 1px solid #c5cfd5; border-radius: 4px; padding: 1rem; margin-block: 1.5rem; min-width: 0; }
 .grade-component legend { float: none; width: auto; padding-inline: .4rem; font-size: 1.1rem; font-weight: 600; }
 .grade-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
-.grade-fields label { display: block; font-size: .95rem; }
-.grade-fields input, .grade-calculator select { width: 100%; min-height: 44px; border: 1px solid #7b8b95; border-radius: 3px; padding: .4rem; background: white; color: var(--ink); }
+.grade-fields label, .grade-exam-fields > div > label:first-child { display: block; font-size: .95rem; }
+.grade-fields input, .grade-exam-fields input[type="number"], .grade-calculator select { width: 100%; min-height: 44px; border: 1px solid #7b8b95; border-radius: 3px; padding: .4rem; background: white; color: var(--ink); }
 .grade-calculator input:focus-visible, .grade-calculator select:focus-visible { outline: 3px solid #a34e0d; outline-offset: 3px; }
 .grade-fields input:disabled { background: #edf0f2; }
 .grade-fix { display: flex; gap: .5rem; align-items: center; margin-top: 1rem; min-height: 44px; }
@@ -49,5 +52,5 @@ main.content { padding-top: 2rem; padding-bottom: 3rem; }
 .grade-result select { max-width: 24rem; display: block; margin-block: .5rem 1rem; }
 .grade-error { color: #972d16; font-weight: 600; }
 @media (max-width: 767px) {
-  .grade-policy-tables, .grade-fields { grid-template-columns: 1fr; gap: .75rem; }
+  .grade-policy-tables, .grade-fields, .grade-exam-fields { grid-template-columns: 1fr; gap: .75rem; }
 }

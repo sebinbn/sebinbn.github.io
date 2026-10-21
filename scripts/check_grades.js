@@ -25,8 +25,13 @@ homework = 20
 quizzes = 10
 projects = 15
 participation = 5
+exams = 50
+[exam_weights]
 exam1 = 25
 exam2 = 25
+[assignment_counts]
+homework = 10
+quizzes = 8
 [grade_cutoffs]
 A = 93
 A- = 90
@@ -41,7 +46,7 @@ F = 0
 `;
   const p = api.parsePolicy(policyText);
   assert(p.course.policy_status === 'draft', 'Example policy must stay draft');
-  assert(p.weights.length === 6, 'All six components parsed');
+  assert(p.weights.length === 5 && p.exams.length === 2, 'Combined Exam category and two individual weights parsed');
   assert(api.parsePolicy(policyText.replace('policy_status = draft', 'policy_status = ready')).course.policy_status === 'ready', 'Ready policy supported');
   assert(api.letter(93, p) === 'A', 'Inclusive cutoff');
   assert(api.letter(92.9999, p) === 'A-', 'Cutoffs must not round up');
@@ -88,14 +93,66 @@ F = 0
     ['[weights]', 'rounding = nearest\n[weights]']
   ];
   invalid.forEach(([before, after]) => rejects(() => api.parsePolicy(policyText.replace(before, after)), 'Reject malformed policy: ' + after));
-  const changed = api.parsePolicy(policyText.replace('A = 93', 'A = 95').replace('exam1 = 25', 'exam1 = 35').replace('homework = 20', 'homework = 10'));
+  const changed = api.parsePolicy(policyText.replace('A = 93', 'A = 95').replace('exam1 = 25', 'exam1 = 35').replace('exams = 50', 'exams = 60').replace('homework = 20', 'homework = 10'));
   assert(api.letter(94, changed) === 'A-', 'Edited cutoff changes the grade');
-  const changedRows = changed.weights.map(item => row(item.weight, 100, item.key === 'exam1' ? 100 : 0));
+  const changedRows = [...changed.weights.filter(item => item.key !== 'exams'), ...changed.exams].map(item => row(item.weight, 100, item.key === 'exam1' ? 100 : 0));
   close(api.calculate(changedRows, 90).projected, 35, 'Edited weights change calculations');
   const extra = api.parsePolicy(policyText.replace('homework = 20', 'homework = 10\nlab_work = 10'));
   assert(extra.weights.some(item => item.key === 'lab_work' && item.weight === 10), 'Additional category supported');
   const disabled = api.parsePolicy(policyText.replace('participation = 5', 'participation = 0').replace('homework = 20', 'homework = 25'));
   assert(disabled.weights.some(item => item.key === 'participation' && item.weight === 0), 'Zero weight supported');
+  assert(api.componentLabel('homework', p) === 'Homework (10 homework)', 'Homework heading includes explicit assignment count');
+  assert(api.componentLabel('quizzes', p) === 'Quizzes (8 quizzes)', 'Quiz heading includes explicit assignment count');
+  assert(api.componentLabel('exams', p) === 'Exam', 'Single overview Exam label');
+  const overview = api.visibleWeights(disabled);
+  assert(!overview.some(item => item.key === 'participation'), 'Zero-weight component hidden in overview and inputs');
+  assert(overview.filter(item => item.key === 'exams').length === 1 && !overview.some(item => item.key === 'exam1'), 'One combined exam row');
+  close(api.countCompletion(0, 10), 0, 'No completed homework');
+  close(api.countCompletion(3, 10), 30, 'Partial homework completion');
+  close(api.countCompletion(8, 8), 100, 'All quizzes completed');
+  close(api.countCompletion(3, 12), 25, 'Updated total changes completion');
+  for (const completed of [-1, 11, 1.5, null, NaN]) {
+    rejects(() => api.countCompletion(completed, 10), 'Reject invalid completed count: ' + completed);
+  }
+  rejects(() => api.countCompletion(0, 0), 'Draft zero total cannot be used for calculations');
+  rejects(() => api.countCompletion(1, 2.5), 'Reject noninteger total');
+  const counted = api.calculate([row(20, api.countCompletion(3, 10), 80, 90), row(80, 0, null, 100)], 90);
+  close(counted.completed, 6, 'Count completion converted to completed course weight');
+  close(counted.projected, 97.4, 'Count-based projection');
+  const ungraded = api.examRow(25, 80, false, false);
+  assert(ungraded.completion === 0 && ungraded.average === null && ungraded.future === 80, 'Ungraded score is future assumption');
+  const graded = api.examRow(25, 80, true, true);
+  assert(graded.completion === 100 && graded.average === 80 && graded.future === null && !graded.fixed, 'Graded score no longer a fixed future assumption');
+  assert(api.examRow(25, 0, true, false).average === 0, 'Graded zero retained');
+  assert(api.examRow(25, null, false, false).future === null, 'Blank future exam remains unknown');
+  rejects(() => api.examRow(25, null, true, false), 'Blank graded exam rejected');
+  const twoExams = [api.examRow(40, 80, true, false), api.examRow(60, 90, false, false)];
+  const examResult = api.calculate(twoExams, 90);
+  close(examResult.current, 80, 'Only graded exam contributes to current grade');
+  close(examResult.completed, 40, 'Unequal exam weight contributes independently');
+  close(examResult.projected, 86, 'Single-box exam assumption contributes to projection');
+  close(examResult.required, 96.66666666666667, 'Target planner uses remaining exam weight');
+  assert(api.calculate([api.examRow(40, 80, true, false), api.examRow(60, 90, false, true)], 90).targetState === 'no-adjustable', 'Fixed future exam used for target');
+  const readyText = policyText.replace('policy_status = draft', 'policy_status = ready');
+  const placeholders = policyText.replace('homework = 10', 'homework = 0').replace('quizzes = 8', 'quizzes = 0');
+  assert(api.parsePolicy(placeholders).counts.homework === 0, 'Draft policies allow zero placeholder totals');
+  rejects(() => api.parsePolicy(placeholders.replace('policy_status = draft', 'policy_status = ready')), 'Ready policies reject placeholders');
+  for (const [before, after] of [
+    ['homework = 10', 'homework = -1'],
+    ['quizzes = 8', 'quizzes = 1.5'],
+    ['quizzes = 8', 'quizzes = many'],
+    ['homework = 10', 'homework = 9007199254740992'],
+    ['quizzes = 8', 'labs = 8'],
+    ['[assignment_counts]', '[missing_counts]'],
+    ['exam2 = 25', 'exam2 = 24'],
+    ['exam2 = 25', 'exam3 = 25'],
+    ['exams = 50', 'exam1 = 50'],
+    ['[exam_weights]', '[missing_exam_weights]']
+  ]) rejects(() => api.parsePolicy(readyText.replace(before, after)), 'Reject invalid counts or exam config: ' + after);
+  const changedCountPolicy = api.parsePolicy(readyText.replace('homework = 10', 'homework = 12'));
+  assert(api.componentLabel('homework', changedCountPolicy) === 'Homework (12 homework)', 'Policy edit changes heading');
+  const noHomework = readyText.replace('homework = 20', 'homework = 0').replace('participation = 5', 'participation = 25').replace('homework = 10', 'homework = 0');
+  assert(!api.visibleWeights(api.parsePolicy(noHomework)).some(item => item.key === 'homework'), 'Zero-weight homework may have zero count and stays hidden');
   return checks;
 }
 if (typeof require !== 'undefined' && typeof module !== 'undefined' && require.main === module) {

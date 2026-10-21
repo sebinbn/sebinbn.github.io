@@ -1,4 +1,4 @@
-# EXAMPLE POLICY ONLY: replace all values with the actual syllabus rules.
+# Keep assignment totals below aligned with the course requirements.
 # Set policy_status = ready only after verifying the complete policy.
 # Percentages use a 0–100 scale. Lines beginning with # are comments.
 [course]
@@ -7,14 +7,26 @@ term = Fall 2026
 policy_status = ready
 
 # Weights must total 100. Zero disables a component.
-# Add categories using unique lowercase_keys; exam1 and exam2 are single exams.
+# Add categories using unique lowercase_keys. exams is the combined exam weight.
 [weights]
 homework = 20
 quizzes = 10
 projects = 15
 participation = 10
+exams = 45
+
+# Individual exam weights are percentages of the FINAL COURSE grade.
+# Their sum must equal exams above; do not use percentages within the Exam category.
+[exam_weights]
 exam1 = 22.5
 exam2 = 22.5
+
+# Total number of assignments in each category.
+# All assignments in each category are treated as equally weighted.
+# Active categories require positive whole-number totals when ready.
+[assignment_counts]
+homework = 6
+quizzes = 10
 
 # Inclusive minimum scores, highest to lowest; include a minimum of 0.
 # Results are compared without rounding. Display uses two decimal places.

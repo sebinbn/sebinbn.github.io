@@ -11,7 +11,7 @@
       const heading = line.match(/^\[([a-z_]+)\]$/);
       if (heading) {
         section = heading[1];
-        if (!['course', 'weights', 'grade_cutoffs'].includes(section) || sections.has(section)) {
+        if (!['course', 'weights', 'exam_weights', 'assignment_counts', 'grade_cutoffs'].includes(section) || sections.has(section)) {
           throw new Error('Unknown or duplicate policy section: ' + section);
         }
         sections.set(section, new Map());
@@ -23,7 +23,7 @@
       if (sections.get(section).has(key)) throw new Error('Duplicate setting: ' + key);
       sections.get(section).set(key, value);
     }
-    if (sections.size !== 3) throw new Error('Policy needs course, weights, and grade_cutoffs sections.');
+    if (sections.size !== 5) throw new Error('Policy needs course, weights, exam_weights, assignment_counts, and grade_cutoffs sections.');
     const course = Object.fromEntries(sections.get('course'));
     if (Object.keys(course).some(key => !['code', 'term', 'policy_status'].includes(key)) ||
         !course.code || !course.term || !['draft', 'ready'].includes(course.policy_status)) {
@@ -36,21 +36,44 @@
       return number;
     };
     const weights = [...sections.get('weights')].map(([key, value]) => {
-      if (!/^[a-z][a-z0-9_]*$/.test(key)) throw new Error('Component keys must use lowercase letters, numbers, and underscores.');
+      if (!/^[a-z][a-z0-9_]*$/.test(key) || ['exam1', 'exam2'].includes(key)) throw new Error('Component keys must use lowercase letters, numbers, and underscores.');
       return { key, weight: percentage(value) };
     });
     if (Math.abs(weights.reduce((sum, item) => sum + item.weight, 0) - 100) > EPS) {
       throw new Error('Component weights must total 100%.');
     }
-    if (!weights.some(item => item.key === 'exam1') || !weights.some(item => item.key === 'exam2')) {
-      throw new Error('Include exam1 and exam2 weights (zero is allowed).');
+    const examCategory = weights.find(item => item.key === 'exams');
+    if (!examCategory) throw new Error('Include a combined exams weight (zero is allowed).');
+    const examSettings = sections.get('exam_weights');
+    if (examSettings.size !== 2 || !examSettings.has('exam1') || !examSettings.has('exam2')) {
+      throw new Error('exam_weights must contain exam1 and exam2 only.');
+    }
+    const exams = [...examSettings].map(([key, value]) => ({ key, weight: percentage(value) }))
+      .sort((a, b) => a.key.localeCompare(b.key));
+    if (Math.abs(exams.reduce((sum, item) => sum + item.weight, 0) - examCategory.weight) > EPS) {
+      throw new Error('Exam 1 and Exam 2 weights must sum to the combined exams weight.');
+    }
+    const countSettings = sections.get('assignment_counts');
+    if (countSettings.size !== 2 || !countSettings.has('homework') || !countSettings.has('quizzes')) {
+      throw new Error('assignment_counts must contain homework and quizzes only.');
+    }
+    const counts = {};
+    for (const [key, value] of countSettings) {
+      const total = Number(value);
+      if (!/^\d+$/.test(value) || !Number.isSafeInteger(total)) {
+        throw new Error('Assignment totals must be nonnegative whole numbers.');
+      }
+      if (course.policy_status === 'ready' && weights.some(item => item.key === key && item.weight > 0) && total === 0) {
+        throw new Error('Enter a positive assignment total for ' + key + ' before marking the policy ready.');
+      }
+      counts[key] = total;
     }
     const cutoffs = [...sections.get('grade_cutoffs')].map(([label, value]) => ({ label, minimum: percentage(value) }));
     if (!cutoffs.length || cutoffs[cutoffs.length - 1].minimum !== 0 ||
         cutoffs.some((item, i) => i && item.minimum >= cutoffs[i - 1].minimum)) {
       throw new Error('Grade cutoffs must descend strictly and end at 0.');
     }
-    return { course, weights, cutoffs };
+    return { course, weights, exams, counts, cutoffs };
   }
   function letter(score, policy) {
     return policy.cutoffs.find(item => score >= item.minimum).label;
@@ -89,8 +112,25 @@
     return { earned, completed, remaining, current: completed > EPS ? earned / completed * 100 : null,
       projected: projectionComplete ? projected : null, adjustable, required, targetState };
   }
+  const labelFor = key => ({ exam1: 'Exam 1', exam2: 'Exam 2', exams: 'Exam', participation: 'Class participation' }[key] ||
+    key.replace(/_/g, ' ').replace(/^./, ch => ch.toUpperCase()));
+  function componentLabel(key, policy) {
+    return ['homework', 'quizzes'].includes(key) ? labelFor(key) + ' (' + policy.counts[key] + ' ' + key + ')' : labelFor(key);
+  }
+  const visibleWeights = policy => policy.weights.filter(item => item.weight > 0);
+  function countCompletion(completed, total) {
+    if (!Number.isSafeInteger(total) || total <= 0 || !Number.isSafeInteger(completed) || completed < 0 || completed > total) {
+      throw new Error('Completed assignment counts must be whole numbers from 0 to the course total.');
+    }
+    return completed / total * 100;
+  }
+  function examRow(weight, score, graded, fixed) {
+    if (graded && score === null) throw new Error('Enter a score for each exam marked Already graded.');
+    return { weight, completion: graded ? 100 : 0, average: graded ? score : null,
+      future: graded ? null : score, fixed: !graded && fixed };
+  }
   // Expose pure functions for lightweight checks without a test framework.
-  const api = { parsePolicy, letter, calculate };
+  const api = { parsePolicy, letter, calculate, componentLabel, visibleWeights, countCompletion, examRow };
   if (typeof document === 'undefined') return api;
 
   function node(tag, text, parent, className) {
@@ -100,8 +140,6 @@
     if (parent) parent.append(element);
     return element;
   }
-  const labelFor = key => ({ exam1: 'Exam 1', exam2: 'Exam 2', participation: 'Class participation' }[key] ||
-    key.replace(/_/g, ' ').replace(/^./, ch => ch.toUpperCase()));
   const fmt = value => value.toFixed(2) + '%';
   function policyTable(parent, caption, headers, rows) {
     const wrapper = node('div', null, parent, 'grade-table-wrap');
@@ -134,21 +172,22 @@
       return;
     }
     if (policy.course.policy_status === 'draft') {
-      status.textContent = 'Calculator not yet available. This course policy contains placeholder values and is awaiting instructor verification. Refer to the syllabus for grading details.';
+      status.textContent = 'Calculator not yet available. Assignment totals or grading details are awaiting instructor verification. Refer to the syllabus for grading details.';
       status.classList.add('grade-notice');
       return;
     }
     status.textContent = 'Grading policy loaded for ' + policy.course.code + ' · ' + policy.course.term + '.';
     node('h2', 'Grading overview', root);
     const tables = node('div', null, root, 'grade-policy-tables');
-    policyTable(tables, 'Course component weights', ['Component', 'Weight'], policy.weights.map(item => [labelFor(item.key), item.weight + '%']));
+    policyTable(tables, 'Course component weights', ['Component', 'Weight'], visibleWeights(policy).map(item => [componentLabel(item.key, policy), item.weight + '%']));
     policyTable(tables, 'Letter-grade minimums', ['Letter grade', 'Minimum score'], policy.cutoffs.map(item => [item.label, item.minimum + '%']));
     node('p', 'Enter all scores as percentages (0–100). Letter grades use unrounded scores; displayed percentages use two decimal places. This calculator uses weighted averages only, without dropped scores, extra credit, or exam replacement rules.', root);
     const form = node('form', null, root);
     form.addEventListener('submit', event => event.preventDefault());
     node('h2', 'Scores and future assumptions', form);
-    node('p', 'For each category, enter the average on graded work and how much of that category’s grading weight is completed. For example, two of five equally weighted homeworks means 40% completed. With unequal point totals, use graded points possible divided by total category points possible. An average alone does not indicate completion.', form);
-    node('p', 'Leave an ungraded exam blank; enter 0 for a recorded zero. Future scores are assumptions for your projected final grade. In the target planner, check “Fix for target” only for assumptions you want to hold constant; unchecked future scores are solved together as one required average.', form);
+    node('p', 'For homework and quizzes, enter your average on graded assignments and the number completed. Completion is calculated from the course total. For other categories, enter the percentage of their grading weight completed.', form);
+    node('p', 'This estimate treats homework and quizzes as equally weighted within each category. Small differences in homework weights may affect your official grade.', form, 'grade-assumption');
+    node('p', 'Each exam score is a future assumption unless Already graded is checked. Leave an unknown exam blank; a graded zero is a recorded zero. For the target planner, check Fix for target only for future scores you want to hold constant; the remaining work is solved together as one required average.', form);
     const controls = [];
     function input(parent, caption, id, value = '') {
       const label = node('label', caption, parent);
@@ -158,19 +197,42 @@
       element.defaultValue = value;
       return element;
     }
-    for (const item of policy.weights.filter(item => item.weight > 0)) {
+    function checkbox(parent, caption) {
+      const label = node('label', null, parent, 'grade-fix');
+      const element = node('input', null, label);
+      element.type = 'checkbox';
+      label.append(document.createTextNode(' ' + caption));
+      return element;
+    }
+    for (const item of visibleWeights(policy)) {
       const fieldset = node('fieldset', null, form, 'grade-component');
-      node('legend', labelFor(item.key) + ' · ' + item.weight + '% of course', fieldset);
+      node('legend', componentLabel(item.key, policy) + ' · ' + item.weight + '% of course', fieldset);
+      if (item.key === 'exams') {
+        const grid = node('div', null, fieldset, 'grade-exam-fields');
+        for (const exam of policy.exams.filter(exam => exam.weight > 0)) {
+          const group = node('div', null, grid);
+          const score = input(group, labelFor(exam.key) + ' (%) · ' + exam.weight + '% of course', exam.key + '-score');
+          const graded = checkbox(group, 'Already graded: ' + labelFor(exam.key));
+          const fixed = checkbox(group, 'Fix for target: ' + labelFor(exam.key));
+          controls.push({ ...exam, score, graded, fixed, exam: true });
+        }
+        continue;
+      }
       const grid = node('div', null, fieldset, 'grade-fields');
-      const exam = ['exam1', 'exam2'].includes(item.key);
-      const average = input(node('div', null, grid), exam ? 'Recorded exam score (%)' : 'Current average (%)', item.key + '-average');
-      const completion = exam ? null : input(node('div', null, grid), 'Category completed (%)', item.key + '-completion', '0');
-      const future = input(node('div', null, grid), exam ? 'Assumed future exam score (%)' : 'Assumed average on remaining work (%)', item.key + '-future');
-      const fixedLabel = node('label', null, fieldset, 'grade-fix');
-      const fixed = node('input', null, fixedLabel);
-      fixed.type = 'checkbox';
-      fixedLabel.append(document.createTextNode(' Fix for target: ' + labelFor(item.key)));
-      controls.push({ ...item, average, completion, future, fixed, exam });
+      const average = input(node('div', null, grid), 'Current average (%)', item.key + '-average');
+      const counted = ['homework', 'quizzes'].includes(item.key);
+      const progressGroup = node('div', null, grid);
+      const completion = input(progressGroup, counted ? 'Number of ' + item.key + ' completed' : 'Category completed (%)', item.key + '-completion', '0');
+      let progress = null;
+      if (counted) {
+        Object.assign(completion, { max: String(policy.counts[item.key]), step: '1', inputMode: 'numeric' });
+        progress = node('p', null, progressGroup, 'grade-progress');
+        progress.id = item.key + '-progress';
+        completion.setAttribute('aria-describedby', progress.id);
+      }
+      const future = input(node('div', null, grid), 'Assumed average on remaining work (%)', item.key + '-future');
+      const fixed = checkbox(fieldset, 'Fix for target: ' + labelFor(item.key));
+      controls.push({ ...item, average, completion, future, fixed, counted, progress, exam: false });
     }
     node('h2', 'Your results', form);
     const gradePanel = node('section', null, form, 'grade-result');
@@ -199,15 +261,24 @@
       try {
         const read = el => el.value === '' ? null : Number(el.value);
         const rows = controls.map(item => {
+          if (item.exam) {
+            item.fixed.disabled = item.graded.checked;
+            return examRow(item.weight, read(item.score), item.graded.checked, item.fixed.checked);
+          }
           const average = read(item.average);
-          const completion = item.exam ? (average === null ? 0 : 100) : read(item.completion);
+          let completion = read(item.completion);
+          if (item.counted) {
+            item.progress.textContent = 'Completion: —';
+            completion = countCompletion(completion, policy.counts[item.key]);
+            item.progress.textContent = 'Completion: ' + fmt(completion);
+          }
           const left = completion !== null && completion < 100;
           item.future.disabled = !left;
           item.fixed.disabled = !left;
           return { weight: item.weight, average, completion, future: left ? read(item.future) : null, fixed: left && item.fixed.checked };
         });
-        if (controls.some(item => [item.average, item.completion, item.future].some(el => el && !el.disabled && !el.validity.valid))) {
-          throw new Error('Enter valid percentages from 0 to 100.');
+        if (controls.some(item => [item.score, item.average, item.completion, item.future].some(el => el && !el.disabled && !el.validity.valid))) {
+          throw new Error('Enter percentages from 0 to 100 and whole-number completed counts within the course totals.');
         }
         const result = calculate(rows, Number(select.value));
         error.textContent = '';
