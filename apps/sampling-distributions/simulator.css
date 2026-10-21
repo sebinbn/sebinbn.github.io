@@ -1,0 +1,56 @@
+.sampling { --sampling-blue: #225d72; --sampling-orange: #a34408; --sampling-purple: #7540a0; }
+.sampling .sampling-flow { font-weight: 600; color: var(--sampling-blue); }
+.sampling .sampling-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-bottom: .75rem; }
+.sampling .sampling-sampling-controls { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 1rem; }
+.sampling label { font-size: .95rem; font-weight: 600; }
+.sampling select, .sampling input[type="number"] { display: block; width: 100%; min-height: 44px; border: 1px solid #798a94; border-radius: 4px; padding: .45rem; background: white; color: #26343d; }
+.sampling .sampling-actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-block: 1rem; }
+.sampling button { min-height: 44px; padding: .5rem .9rem; background: var(--sampling-blue); color: white; border: 1px solid var(--sampling-blue); border-radius: 4px; font-weight: 600; }
+.sampling button.sampling-secondary { background: white; color: var(--sampling-blue); }
+.sampling button:disabled { opacity: .5; cursor: not-allowed; }
+.sampling :is(button, input, select):focus-visible { outline: 3px solid #a34e0d; outline-offset: 3px; }
+.sampling [hidden] { display: none !important; }
+.sampling #sampling-status { min-height: 1.7em; margin-bottom: .5rem; }
+.sampling progress { width: 100%; height: 1rem; }
+.sampling .sampling-panel { border: 1px solid #cbd5db; border-radius: 6px; padding: 1rem 1.25rem; background: white; }
+.sampling .sampling-panel h2 { margin: 0 0 .6rem; font-size: 1.6rem; }
+.sampling .sampling-panel p { margin-bottom: .5rem; }
+.sampling .sampling-panel.sampling-compact { padding: 6px 12px; }
+.sampling .sampling-compact h2 { font-size: 22px; line-height: 26px; margin-bottom: 2px; }
+.sampling .sampling-compact p { font-size: 14px; line-height: 18px; margin-bottom: 2px; }
+.sampling .sampling-compact .sampling-overlay { font-size: 14px; line-height: 18px; min-height: 28px; }
+.sampling .sampling-compact + .sampling-connector { font-size: 14px; line-height: 20px; margin: 2px 0; }
+.sampling .sampling-stats { font-variant-numeric: tabular-nums; font-weight: 600; }
+.sampling .sampling-connector { text-align: center; color: var(--sampling-blue); font-weight: 600; margin: .7rem 0; }
+.sampling svg { display: block; width: 100%; height: auto; overflow: visible; }
+.sampling svg text { fill: #374852; font-family: system-ui, sans-serif; font-size: 15px; }
+.sampling svg .axis { stroke: #798a94; stroke-width: 1; }
+.sampling svg .grid { stroke: #e4eaed; stroke-width: 1; }
+.sampling svg .bar, .sampling svg .observation { fill: var(--sampling-blue); }
+.sampling svg .density { fill: #dceaf0; stroke: var(--sampling-blue); stroke-width: 2; }
+.sampling svg .mu { stroke: #344952; stroke-width: 2; stroke-dasharray: 6 5; }
+.sampling svg .normal { stroke: var(--sampling-purple); stroke-width: 3; fill: none; }
+.sampling svg .sample-mean { fill: var(--sampling-orange); }
+.sampling svg .sample-line { stroke: var(--sampling-orange); stroke-width: 2; }
+.sampling .sampling-overlay { display: flex; align-items: center; gap: .5rem; min-height: 44px; }
+.sampling .sampling-overlay input { width: 20px; height: 20px; flex-shrink: 0; }
+.sampling .sampling-legend { font-size: .9rem; }
+.sampling .sampling-key-normal { color: var(--sampling-purple); }
+.sampling .sampling-key-pop { color: #344952; }
+.sampling #sampling-pop-plot.drawing { touch-action: none; cursor: crosshair; border: 2px dashed #798a94; }
+.sampling #sampling-custom-error { color: #972d16; }
+.sampling .sampling-explanation h2 { font-size: 1.6rem; }
+@media (max-width: 767px) {
+  .sampling .sampling-sampling-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sampling .sampling-panel { padding: .8rem; }
+  .sampling .sampling-panel h2 { font-size: 1.3rem; }
+  .sampling .sampling-compact .sampling-overlay { min-height: 44px; }
+}
+@media (max-width: 420px) {
+  .sampling .sampling-controls { grid-template-columns: 1fr; }
+}
+
+.sampling .sampling-statistic-control { margin-block: .75rem; }
+.sampling .sampling-statistic-control select { max-width: 32rem; }
+.sampling #sampling-statistic-help { margin-block: .4rem; font-size: .95rem; }
+.sampling svg .modal-bin { fill: #f5d9bd; opacity: .7; }

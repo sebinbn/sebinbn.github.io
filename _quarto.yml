@@ -9,6 +9,7 @@ project:
     - teaching/fall-2026/*/index.qmd
     - apps/index.qmd
     - apps/central-limit-theorem/index.qmd
+    - apps/sampling-distributions/index.qmd
     - blog/index.qmd
     - blog/posts/**/*.qmd
     - home/index.qmd
@@ -17,6 +18,9 @@ project:
     - apps/compound-interest/calculator.html
     - apps/central-limit-theorem/simulator.js
     - apps/central-limit-theorem/simulator.css
+    - apps/sampling-distributions/simulator.js
+    - apps/sampling-distributions/statistics.mjs
+    - apps/sampling-distributions/simulator.css
     - files/NidhiriSebin_CV_B_v1.pdf
     - images/homePortrait.jpg
     - images/teaching.jpg

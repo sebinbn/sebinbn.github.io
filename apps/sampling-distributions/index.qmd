@@ -1,0 +1,80 @@
+---
+title: "Sampling Distribution Simulator"
+subtitle: "Explore sampling distributions of the mean, median, mode, and two variance estimators."
+format:
+  html:
+    css: simulator.css
+---
+
+```{=html}
+<div id="sampling" class="sampling">
+  <noscript>Enable JavaScript to draw populations and run the simulator.</noscript>
+  <p id="sampling-flow" class="sampling-flow">Population <span aria-hidden="true">→</span> Random Sample <span aria-hidden="true">→</span> Sampling Distribution of the Selected Statistic</p>
+  <div class="sampling-controls">
+    <label>Population<select id="sampling-population">
+      <option value="normal">Normal</option><option value="uniform">Uniform</option>
+      <option value="right" selected>Right-skewed</option><option value="left">Left-skewed</option>
+      <option value="bimodal">Bimodal</option><option value="custom">Custom / Draw Your Own</option>
+    </select></label>
+  </div>
+  <section class="sampling-panel" aria-labelledby="sampling-heading-pop">
+    <h2 id="sampling-heading-pop">1. Population Distribution</h2>
+    <p>Individual observations are drawn independently from this population.</p>
+    <p id="sampling-pop-stats" class="sampling-stats"></p>
+    <div id="sampling-custom" hidden>
+      <p id="sampling-draw-help"><strong>Draw your own distribution:</strong> click or drag across the plot to set its height. Touch drawing works too. Your shape is smoothed and normalized when you finish.</p>
+      <button id="sampling-clear" type="button" class="sampling-secondary">Clear drawing</button>
+      <p id="sampling-custom-error" role="status"></p>
+    </div>
+    <svg id="sampling-pop-plot" viewBox="0 0 900 240" role="img" aria-labelledby="sampling-pop-title sampling-pop-desc"><title id="sampling-pop-title">Population distribution</title><desc id="sampling-pop-desc"></desc></svg>
+  </section>
+  <div class="sampling-controls sampling-sampling-controls">
+    <label>Sample size (n)<input id="sampling-n" type="number" min="1" max="200" step="1" value="5"></label>
+    <label>Samples per batch<select id="sampling-batch"><option>10</option><option>100</option><option selected>1000</option><option>5000</option><option>10000</option></select></label>
+    <label>Animation speed<select id="sampling-speed"><option value="1" selected>1 sample / second</option><option value="2">2 samples / second</option><option value="5">5 samples / second</option></select></label>
+  </div>
+  <div class="sampling-actions">
+    <button id="sampling-one" type="button">Draw one sample</button>
+    <button id="sampling-many" type="button">Draw many samples</button>
+    <button id="sampling-animate" type="button">Start animation</button>
+    <button id="sampling-cancel" type="button" hidden>Cancel batch</button>
+    <button id="sampling-reset" type="button" class="sampling-secondary">Reset results</button>
+  </div>
+  <div class="sampling-statistic-control">
+    <label>Statistic<select id="sampling-statistic">
+      <option value="mean" selected>Mean</option><option value="median">Median</option>
+      <option value="mode">Mode (histogram estimate)</option>
+      <option value="populationVariance">Population variance (N denominator)</option>
+      <option value="sampleVariance">Sample variance (N−1 denominator)</option>
+    </select></label>
+    <p id="sampling-statistic-help"></p>
+  </div>
+  <p id="sampling-status" role="status" aria-live="polite">Choose a population and draw a sample to begin.</p>
+  <progress id="sampling-progress" value="0" max="100" hidden aria-label="Batch progress"></progress>
+  <p class="sampling-connector">↓ Draw n individual observations</p>
+  <section class="sampling-panel sampling-compact" aria-labelledby="sampling-heading-sample">
+    <h2 id="sampling-heading-sample">2. Random Sample</h2>
+    <p id="sampling-sample-help">Each dot is one observation; the orange diamond marks the selected statistic.</p>
+    <p id="sampling-sample-stats" class="sampling-stats">No sample drawn yet.</p>
+    <svg id="sampling-sample-plot" viewBox="0 0 900 130" role="img" aria-labelledby="sampling-sample-title sampling-sample-desc"><title id="sampling-sample-title">Latest random sample</title><desc id="sampling-sample-desc"></desc></svg>
+  </section>
+  <p id="sampling-statistic-connector" class="sampling-connector">↓ Add one statistic from this sample to the distribution below</p>
+  <section class="sampling-panel sampling-compact" aria-labelledby="sampling-heading-statistics">
+    <h2 id="sampling-heading-statistics">3. Sampling Distribution of the Selected Statistic</h2>
+    <p>One entry represents <strong>one statistic from an entire sample</strong>, not one individual observation.</p>
+    <p id="sampling-statistics-stats" class="sampling-stats"></p>
+    <label id="sampling-overlay-control" class="sampling-overlay"><input id="sampling-overlay" type="checkbox" checked> Show normal approximation: center μ, spread σ/√n</label>
+    <svg id="sampling-statistics-plot" viewBox="0 0 900 190" role="img" aria-labelledby="sampling-statistics-title sampling-statistics-desc"><title id="sampling-statistics-title">Sampling distribution of the selected statistic</title><desc id="sampling-statistics-desc"></desc></svg>
+    <p id="sampling-legend" class="sampling-legend"></p>
+  </section>
+  <div class="sampling-explanation">
+    <h2>What is a sampling distribution?</h2>
+    <p>Draw N independent observations from a fixed population, calculate one statistic, and repeat. The histogram shows how that statistic varies between samples. More repetitions make the histogram clearer; changing N changes its sampling behavior.</p>
+    <p><strong>Mean and median:</strong> the mean averages observations; the median is the middle observation after sorting (or the average of the middle two). The mean’s theoretical standard error is σ/√N. Its normal approximation is shown only when Mean is selected; other statistics need their own theory.</p>
+    <p><strong>Mode:</strong> continuous observations rarely repeat exactly. We estimate the mode using fixed bins of width 2.5, with boundaries at multiples of 2.5, and report the midpoint of the most populated bin. A value on a boundary belongs to the bin starting there. Tied bins have equal chances of being selected. When every occupied bin contains just one observation, this random choice does not establish a unique sample mode.</p>
+    <p><strong>Two variance estimators:</strong> both use deviations from the sample mean, x̄. Here N is the number of observations in each sample (the n control above). “Population variance” uses Σ(xᵢ−x̄)²/N; applied to a random sample, its expectation is (N−1)σ²/N, below the actual population variance σ². “Sample variance” uses Σ(xᵢ−x̄)²/(N−1) and is unbiased for σ² under independent sampling. It is undefined at N = 1. Variance has squared units.</p>
+    <p>Changing the statistic, population, or N clears results. Batch mode skips individual animations and keeps the page responsive. All calculations run in your browser; nothing is uploaded or saved.</p>
+  </div>
+</div>
+<script src="simulator.js" type="module"></script>
+```

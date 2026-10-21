@@ -77,18 +77,95 @@
     "text": "Find the maximum compounding can make\nAre you interested in calculating the amount of return that continuous compounding can make for interest rates of your choice ? Use the widget below to check for yourself\n\n\nOpen the calculator on its own."
   },
   {
-    "objectID": "apps/central-limit-theorem/index.html",
-    "href": "apps/central-limit-theorem/index.html",
-    "title": "Central Limit Theorem Simulator",
+    "objectID": "apps/sampling-distributions/index.html",
+    "href": "apps/sampling-distributions/index.html",
+    "title": "Sampling Distribution Simulator",
     "section": "",
-    "text": "Enable JavaScript to draw populations and run the simulator.\n  Population → Random Sample → Distribution of Sample Means\n  \n    Population\n      NormalUniform\n      Right-skewedLeft-skewed\n      BimodalCustom / Draw Your Own\n    \n  \n  \n    1. Population Distribution\n    Individual observations are drawn independently from this population.\n    \n    \n      Draw your own distribution: click or drag across the plot to set its height. Touch drawing works too. Your shape is smoothed and normalized when you finish.\n      Clear drawing\n      \n    \n    Population distribution\n  \n  \n    Sample size (n)\n    Samples per batch101001000500010000\n    Animation speed1 sample / second2 samples / second5 samples / second\n  \n  \n    Draw one sample\n    Draw many samples\n    Start animation\n    Cancel batch\n    Reset results\n  \n  Choose a population and draw a sample to begin.\n  \n  ↓ Draw n individual observations\n  \n    2. Random Sample\n    Each dot is one observation; the orange diamond marks the sample mean, x̄.\n    No sample drawn yet.\n    Latest random sample\n  \n  ↓ Add one sample mean, x̄, to the distribution below\n  \n    3. Distribution of Sample Means\n    One entry represents one entire sample’s mean, not one individual observation.\n    \n     Show normal approximation: center μ, spread σ/√n\n    Sampling distribution of the sample mean\n    Dashed line: population mean μ · Purple curve: normal approximation\n  \n  \n    What changes as you sample?\n    Larger samples (n) make sample means less variable: their theoretical standard deviation, called the standard error, is σ/√n. The Central Limit Theorem says that for independent observations from the same population with finite variance, the distribution of sample means becomes approximately normal as n grows—even when the population is not normal. Strong skewness may require larger n; 30 is not a universal threshold.\n    More repetitions make the sampling histogram clearer. They do not change its theoretical spread or make a small sample size behave like a large one. The purple curve is an approximation to compare against, not a curve fitted to the simulated means.\n    Changing the population or n clears results so different experiments are not mixed. Batch mode skips individual animations. All calculations run in your browser; nothing is uploaded or saved."
+    "text": "Enable JavaScript to draw populations and run the simulator.\n  Population → Random Sample → Sampling Distribution of the Selected Statistic\n  \n    Population\n      NormalUniform\n      Right-skewedLeft-skewed\n      BimodalCustom / Draw Your Own\n    \n  \n  \n    1. Population Distribution\n    Individual observations are drawn independently from this population.\n    \n    \n      Draw your own distribution: click or drag across the plot to set its height. Touch drawing works too. Your shape is smoothed and normalized when you finish.\n      Clear drawing\n      \n    \n    Population distribution\n  \n  \n    Sample size (n)\n    Samples per batch101001000500010000\n    Animation speed1 sample / second2 samples / second5 samples / second\n  \n  \n    Draw one sample\n    Draw many samples\n    Start animation\n    Cancel batch\n    Reset results\n  \n  \n    Statistic\n      MeanMedian\n      Mode (histogram estimate)\n      Population variance (N denominator)\n      Sample variance (N−1 denominator)\n    \n    \n  \n  Choose a population and draw a sample to begin.\n  \n  ↓ Draw n individual observations\n  \n    2. Random Sample\n    Each dot is one observation; the orange diamond marks the selected statistic.\n    No sample drawn yet.\n    Latest random sample\n  \n  ↓ Add one statistic from this sample to the distribution below\n  \n    3. Sampling Distribution of the Selected Statistic\n    One entry represents one statistic from an entire sample, not one individual observation.\n    \n     Show normal approximation: center μ, spread σ/√n\n    Sampling distribution of the selected statistic\n    \n  \n  \n    What is a sampling distribution?\n    Draw N independent observations from a fixed population, calculate one statistic, and repeat. The histogram shows how that statistic varies between samples. More repetitions make the histogram clearer; changing N changes its sampling behavior.\n    Mean and median: the mean averages observations; the median is the middle observation after sorting (or the average of the middle two). The mean’s theoretical standard error is σ/√N. Its normal approximation is shown only when Mean is selected; other statistics need their own theory.\n    Mode: continuous observations rarely repeat exactly. We estimate the mode using fixed bins of width 2.5, with boundaries at multiples of 2.5, and report the midpoint of the most populated bin. A value on a boundary belongs to the bin starting there. Tied bins have equal chances of being selected. When every occupied bin contains just one observation, this random choice does not establish a unique sample mode.\n    Two variance estimators: both use deviations from the sample mean, x̄. Here N is the number of observations in each sample (the n control above). “Population variance” uses Σ(xᵢ−x̄)²/N; applied to a random sample, its expectation is (N−1)σ²/N, below the actual population variance σ². “Sample variance” uses Σ(xᵢ−x̄)²/(N−1) and is unbiased for σ² under independent sampling. It is undefined at N = 1. Variance has squared units.\n    Changing the statistic, population, or N clears results. Batch mode skips individual animations and keeps the page responsive. All calculations run in your browser; nothing is uploaded or saved."
   },
   {
-    "objectID": "teaching/fall-2026/econ-4325/index.html",
-    "href": "teaching/fall-2026/econ-4325/index.html",
-    "title": "ECON 4325 grade calculator",
+    "objectID": "apps/index.html",
+    "href": "apps/index.html",
+    "title": "Apps",
     "section": "",
-    "text": "Time Series Analysis and Forecasting · Fall 2026\nSyllabus · Back to Teaching\nUse this calculator to explore tentative grades and plan remaining work. The syllabus and instructor determine your official grade. Scores stay in this browser tab and are cleared when you reload or reset the page.\n\n  Loading course grading policy…\n  Enable JavaScript to use this calculator."
+    "text": "See how repeated random samples produce a sampling distribution of the sample mean. Choose a population or draw your own, then explore how sample size changes the distribution of means.\nOpen the Central Limit Theorem Simulator"
+  },
+  {
+    "objectID": "apps/index.html#central-limit-theorem-simulator",
+    "href": "apps/index.html#central-limit-theorem-simulator",
+    "title": "Apps",
+    "section": "",
+    "text": "See how repeated random samples produce a sampling distribution of the sample mean. Choose a population or draw your own, then explore how sample size changes the distribution of means.\nOpen the Central Limit Theorem Simulator"
+  },
+  {
+    "objectID": "apps/index.html#sampling-distribution-simulator",
+    "href": "apps/index.html#sampling-distribution-simulator",
+    "title": "Apps",
+    "section": "Sampling Distribution Simulator",
+    "text": "Sampling Distribution Simulator\nExplore how the mean, median, histogram-based mode, and two variance estimators vary across repeated random samples. Choose a population or draw your own.\nOpen the Sampling Distribution Simulator"
+  },
+  {
+    "objectID": "apps/index.html#global-debt-flows",
+    "href": "apps/index.html#global-debt-flows",
+    "title": "Apps",
+    "section": "Global debt flows",
+    "text": "Global debt flows\nVisualise foreign ownership of government bonds using IMF’s CPIS data. This Shiny app is written in R.\nOpen the Shiny app · Source code"
+  },
+  {
+    "objectID": "apps/index.html#continuous-compound-interest-calculator",
+    "href": "apps/index.html#continuous-compound-interest-calculator",
+    "title": "Apps",
+    "section": "Continuous compound interest calculator",
+    "text": "Continuous compound interest calculator\nCalculate the final value of an initial investment with continuous compounding.\nRead the article and use the calculator · Open the calculator"
+  },
+  {
+    "objectID": "teaching/fall-2026/econ-3320/index.html",
+    "href": "teaching/fall-2026/econ-3320/index.html",
+    "title": "ECON 3320 grade calculator",
+    "section": "",
+    "text": "Introduction to Economic Data Analysis · Fall 2026\nSyllabus · Back to Teaching\nUse this calculator to explore tentative grades and plan remaining work. The syllabus and instructor determine your official grade. Scores stay in this browser tab and are cleared when you reload or reset the page.\n\n  Loading course grading policy…\n  Enable JavaScript to use this calculator."
+  },
+  {
+    "objectID": "research/index.html",
+    "href": "research/index.html",
+    "title": "Research",
+    "section": "",
+    "text": "Job Market Paper · Read the paper\nAbstract: This paper finds that inflow of foreign capital to local currency denominated government bonds in Mexico reduced long term yields, but also reduced monetary policy transmission to the short end of the government bond yield curve, showing that foreign capital is a double-edged sword for Mexico. Non-parametric kernel weighted estimation of a time varying VAR captures changing monetary policy transmission over time. The empirical result is explained with a model of financial markets with heterogeneous financial intermediaries, who source funds short-term and invest in long-term bonds. The heterogeneity is in the source of funds and can be thought of as global institutions who access funds at a global interest rate and domestic institutions accessing funds at the policy rate. Global institution’s demand for long term bonds is unresponsive to changes in the domestic policy rate, reducing the response of domestic yields to changes in the policy rate.\n\n\n\nRead the paper\nAbstract: The Reserve Bank of India (RBI) started a monetary policy in December 2019 called Special OMOs. The RBI has conducted 24 such Special OMO auctions between December 2019 and May 2021 with the objective of flattening the yield curve. This paper uses event studies and intervention analysis and finds that Special OMO announcements reduced the slope of the Indian government bond yield curve by 79.8 bps from December 2019 until May 2021. It is also found that this change in slope is driven by changes in the short end of the yield curve combined with no change at the long end. This is explained theoretically by combining Market Segmentation hypothesis and Euler equations. Further analysis of individual announcements show that only a few of the Special OMO announcements resulted in significant changes in the yields and yield curve slope.\n\n\n\nJoint with David Papell and Swati Singh · Read the paper on SSRN\nAbstract: The Federal Reserve Board started a strategy review at the beginning of 2025 and intends to complete by late summer of 2025. After its only previous review, the Federal Open Market Committee adopted a far-reaching Revised Statement on Longer-Run Goals and Monetary Policy Strategy in August 2020. We analyze and develop policy rules that are either in accord with the original 2012 statement or inspired by the revised 2020 statement and use the rules to evaluate monetary policy using the Federal Reserve Board/United States model. We evaluate policy rules categorized by traditional, shortfalls, Asymmetric Coefficient Inflation Targeting, and Asymmetric Target Inflation Targeting versions of non-inertial and inertial Taylor and balanced approach rules. Economic performance is better with balanced approach rules than with Taylor rules, worse with shortfalls rules than with traditional rules, better with inertial rules than with non-inertial rules, and better with the two asymmetric inflation targeting rules than with traditional rules."
+  },
+  {
+    "objectID": "research/index.html#h.rn5claad0ah9",
+    "href": "research/index.html#h.rn5claad0ah9",
+    "title": "Research",
+    "section": "",
+    "text": "Job Market Paper · Read the paper\nAbstract: This paper finds that inflow of foreign capital to local currency denominated government bonds in Mexico reduced long term yields, but also reduced monetary policy transmission to the short end of the government bond yield curve, showing that foreign capital is a double-edged sword for Mexico. Non-parametric kernel weighted estimation of a time varying VAR captures changing monetary policy transmission over time. The empirical result is explained with a model of financial markets with heterogeneous financial intermediaries, who source funds short-term and invest in long-term bonds. The heterogeneity is in the source of funds and can be thought of as global institutions who access funds at a global interest rate and domestic institutions accessing funds at the policy rate. Global institution’s demand for long term bonds is unresponsive to changes in the domestic policy rate, reducing the response of domestic yields to changes in the policy rate.\n\n\n\nRead the paper\nAbstract: The Reserve Bank of India (RBI) started a monetary policy in December 2019 called Special OMOs. The RBI has conducted 24 such Special OMO auctions between December 2019 and May 2021 with the objective of flattening the yield curve. This paper uses event studies and intervention analysis and finds that Special OMO announcements reduced the slope of the Indian government bond yield curve by 79.8 bps from December 2019 until May 2021. It is also found that this change in slope is driven by changes in the short end of the yield curve combined with no change at the long end. This is explained theoretically by combining Market Segmentation hypothesis and Euler equations. Further analysis of individual announcements show that only a few of the Special OMO announcements resulted in significant changes in the yields and yield curve slope.\n\n\n\nJoint with David Papell and Swati Singh · Read the paper on SSRN\nAbstract: The Federal Reserve Board started a strategy review at the beginning of 2025 and intends to complete by late summer of 2025. After its only previous review, the Federal Open Market Committee adopted a far-reaching Revised Statement on Longer-Run Goals and Monetary Policy Strategy in August 2020. We analyze and develop policy rules that are either in accord with the original 2012 statement or inspired by the revised 2020 statement and use the rules to evaluate monetary policy using the Federal Reserve Board/United States model. We evaluate policy rules categorized by traditional, shortfalls, Asymmetric Coefficient Inflation Targeting, and Asymmetric Target Inflation Targeting versions of non-inertial and inertial Taylor and balanced approach rules. Economic performance is better with balanced approach rules than with Taylor rules, worse with shortfalls rules than with traditional rules, better with inertial rules than with non-inertial rules, and better with the two asymmetric inflation targeting rules than with traditional rules."
+  },
+  {
+    "objectID": "research/index.html#h.z9ez6axa8bc",
+    "href": "research/index.html#h.z9ez6axa8bc",
+    "title": "Research",
+    "section": "Other Research",
+    "text": "Other Research\n\nWork In Progress\n\nThe Taylor Curve, the Taylor Rule, and the Inflation-Output Variability Tradeoff (joint with David Papell and Swati Singh)\n\n\n\nPermanent Working Paper\n\nMoving South: Comparative Analysis of the Patterns of Migration into South Indian States (slides)\n\n\n\nPublications\n\nNayak, S., & Nidhiri, S. B. (2019). From Rivalry to Antipathy Amid Sports Enthusiasts in Individual Sports: A Case of the Seles-Graf Rivalry. In Understanding Rivalry and Its Influence on Sports Fans (pp. 114–134). IGI Global.\nNidhiri, S. B., & Saxena, S. (2019). Social Media Analytics for Maintaining Financial Stability. In Maintaining Financial Stability in Times of Risk and Uncertainty (pp. 219–242). IGI Global.\nGoswami, P., Liongs, B. & Nidhiri, S.B. (2016). Report on Citizen Monitoring of PMGSY Roads. Public Affairs Centre."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Sebin Bapty Nidhiri",
+    "section": "",
+    "text": "Instructional Assistant Professor · University of Houston\n\nI am an empirical macroeconomist with expertise in time series econometrics, currently working as an Instructional Assistant Professor at University of Houston. I completed my PhD at the Department of Economics at University of Houston in May 2026.\nResearch interests: Macro-finance, Time Series Econometrics, Monetary Economics.\nsbnidhiri@uh.edu\n\nCurriculum vitae Job market paper Video bio"
+  },
+  {
+    "objectID": "cv/index.html",
+    "href": "cv/index.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Download my CV (PDF)"
+  },
+  {
+    "objectID": "cv/index.html#video-biography",
+    "href": "cv/index.html#video-biography",
+    "title": "Curriculum Vitae",
+    "section": "Video biography",
+    "text": "Video biography\nWatch my video biography on YouTube."
   },
   {
     "objectID": "teaching/index.html",
@@ -126,81 +203,18 @@
     "text": "Teaching Assistant at University of Houston\n\nEconometrics II (PhD core) — Fall 2023\nEconometrics I (PhD core) — Spring 2023\nQuantitative Economic Analysis (PhD core) — Fall 2022\nTime Series Analysis (undergraduate) — Fall 2021\nPrinciples of Macroeconomics (undergraduate) — Spring 2022\nManagerial Economics (undergraduate) — Fall 2025"
   },
   {
-    "objectID": "cv/index.html",
-    "href": "cv/index.html",
-    "title": "Curriculum Vitae",
+    "objectID": "teaching/fall-2026/econ-4325/index.html",
+    "href": "teaching/fall-2026/econ-4325/index.html",
+    "title": "ECON 4325 grade calculator",
     "section": "",
-    "text": "Download my CV (PDF)"
+    "text": "Time Series Analysis and Forecasting · Fall 2026\nSyllabus · Back to Teaching\nUse this calculator to explore tentative grades and plan remaining work. The syllabus and instructor determine your official grade. Scores stay in this browser tab and are cleared when you reload or reset the page.\n\n  Loading course grading policy…\n  Enable JavaScript to use this calculator."
   },
   {
-    "objectID": "cv/index.html#video-biography",
-    "href": "cv/index.html#video-biography",
-    "title": "Curriculum Vitae",
-    "section": "Video biography",
-    "text": "Video biography\nWatch my video biography on YouTube."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Sebin Bapty Nidhiri",
+    "objectID": "apps/central-limit-theorem/index.html",
+    "href": "apps/central-limit-theorem/index.html",
+    "title": "Central Limit Theorem Simulator",
     "section": "",
-    "text": "Instructional Assistant Professor · University of Houston\n\nI am an empirical macroeconomist with expertise in time series econometrics, currently working as an Instructional Assistant Professor at University of Houston. I completed my PhD at the Department of Economics at University of Houston in May 2026.\nResearch interests: Macro-finance, Time Series Econometrics, Monetary Economics.\nsbnidhiri@uh.edu\n\nCurriculum vitae Job market paper Video bio"
-  },
-  {
-    "objectID": "research/index.html",
-    "href": "research/index.html",
-    "title": "Research",
-    "section": "",
-    "text": "Job Market Paper · Read the paper\nAbstract: This paper finds that inflow of foreign capital to local currency denominated government bonds in Mexico reduced long term yields, but also reduced monetary policy transmission to the short end of the government bond yield curve, showing that foreign capital is a double-edged sword for Mexico. Non-parametric kernel weighted estimation of a time varying VAR captures changing monetary policy transmission over time. The empirical result is explained with a model of financial markets with heterogeneous financial intermediaries, who source funds short-term and invest in long-term bonds. The heterogeneity is in the source of funds and can be thought of as global institutions who access funds at a global interest rate and domestic institutions accessing funds at the policy rate. Global institution’s demand for long term bonds is unresponsive to changes in the domestic policy rate, reducing the response of domestic yields to changes in the policy rate.\n\n\n\nRead the paper\nAbstract: The Reserve Bank of India (RBI) started a monetary policy in December 2019 called Special OMOs. The RBI has conducted 24 such Special OMO auctions between December 2019 and May 2021 with the objective of flattening the yield curve. This paper uses event studies and intervention analysis and finds that Special OMO announcements reduced the slope of the Indian government bond yield curve by 79.8 bps from December 2019 until May 2021. It is also found that this change in slope is driven by changes in the short end of the yield curve combined with no change at the long end. This is explained theoretically by combining Market Segmentation hypothesis and Euler equations. Further analysis of individual announcements show that only a few of the Special OMO announcements resulted in significant changes in the yields and yield curve slope.\n\n\n\nJoint with David Papell and Swati Singh · Read the paper on SSRN\nAbstract: The Federal Reserve Board started a strategy review at the beginning of 2025 and intends to complete by late summer of 2025. After its only previous review, the Federal Open Market Committee adopted a far-reaching Revised Statement on Longer-Run Goals and Monetary Policy Strategy in August 2020. We analyze and develop policy rules that are either in accord with the original 2012 statement or inspired by the revised 2020 statement and use the rules to evaluate monetary policy using the Federal Reserve Board/United States model. We evaluate policy rules categorized by traditional, shortfalls, Asymmetric Coefficient Inflation Targeting, and Asymmetric Target Inflation Targeting versions of non-inertial and inertial Taylor and balanced approach rules. Economic performance is better with balanced approach rules than with Taylor rules, worse with shortfalls rules than with traditional rules, better with inertial rules than with non-inertial rules, and better with the two asymmetric inflation targeting rules than with traditional rules."
-  },
-  {
-    "objectID": "research/index.html#h.rn5claad0ah9",
-    "href": "research/index.html#h.rn5claad0ah9",
-    "title": "Research",
-    "section": "",
-    "text": "Job Market Paper · Read the paper\nAbstract: This paper finds that inflow of foreign capital to local currency denominated government bonds in Mexico reduced long term yields, but also reduced monetary policy transmission to the short end of the government bond yield curve, showing that foreign capital is a double-edged sword for Mexico. Non-parametric kernel weighted estimation of a time varying VAR captures changing monetary policy transmission over time. The empirical result is explained with a model of financial markets with heterogeneous financial intermediaries, who source funds short-term and invest in long-term bonds. The heterogeneity is in the source of funds and can be thought of as global institutions who access funds at a global interest rate and domestic institutions accessing funds at the policy rate. Global institution’s demand for long term bonds is unresponsive to changes in the domestic policy rate, reducing the response of domestic yields to changes in the policy rate.\n\n\n\nRead the paper\nAbstract: The Reserve Bank of India (RBI) started a monetary policy in December 2019 called Special OMOs. The RBI has conducted 24 such Special OMO auctions between December 2019 and May 2021 with the objective of flattening the yield curve. This paper uses event studies and intervention analysis and finds that Special OMO announcements reduced the slope of the Indian government bond yield curve by 79.8 bps from December 2019 until May 2021. It is also found that this change in slope is driven by changes in the short end of the yield curve combined with no change at the long end. This is explained theoretically by combining Market Segmentation hypothesis and Euler equations. Further analysis of individual announcements show that only a few of the Special OMO announcements resulted in significant changes in the yields and yield curve slope.\n\n\n\nJoint with David Papell and Swati Singh · Read the paper on SSRN\nAbstract: The Federal Reserve Board started a strategy review at the beginning of 2025 and intends to complete by late summer of 2025. After its only previous review, the Federal Open Market Committee adopted a far-reaching Revised Statement on Longer-Run Goals and Monetary Policy Strategy in August 2020. We analyze and develop policy rules that are either in accord with the original 2012 statement or inspired by the revised 2020 statement and use the rules to evaluate monetary policy using the Federal Reserve Board/United States model. We evaluate policy rules categorized by traditional, shortfalls, Asymmetric Coefficient Inflation Targeting, and Asymmetric Target Inflation Targeting versions of non-inertial and inertial Taylor and balanced approach rules. Economic performance is better with balanced approach rules than with Taylor rules, worse with shortfalls rules than with traditional rules, better with inertial rules than with non-inertial rules, and better with the two asymmetric inflation targeting rules than with traditional rules."
-  },
-  {
-    "objectID": "research/index.html#h.z9ez6axa8bc",
-    "href": "research/index.html#h.z9ez6axa8bc",
-    "title": "Research",
-    "section": "Other Research",
-    "text": "Other Research\n\nWork In Progress\n\nThe Taylor Curve, the Taylor Rule, and the Inflation-Output Variability Tradeoff (joint with David Papell and Swati Singh)\n\n\n\nPermanent Working Paper\n\nMoving South: Comparative Analysis of the Patterns of Migration into South Indian States (slides)\n\n\n\nPublications\n\nNayak, S., & Nidhiri, S. B. (2019). From Rivalry to Antipathy Amid Sports Enthusiasts in Individual Sports: A Case of the Seles-Graf Rivalry. In Understanding Rivalry and Its Influence on Sports Fans (pp. 114–134). IGI Global.\nNidhiri, S. B., & Saxena, S. (2019). Social Media Analytics for Maintaining Financial Stability. In Maintaining Financial Stability in Times of Risk and Uncertainty (pp. 219–242). IGI Global.\nGoswami, P., Liongs, B. & Nidhiri, S.B. (2016). Report on Citizen Monitoring of PMGSY Roads. Public Affairs Centre."
-  },
-  {
-    "objectID": "teaching/fall-2026/econ-3320/index.html",
-    "href": "teaching/fall-2026/econ-3320/index.html",
-    "title": "ECON 3320 grade calculator",
-    "section": "",
-    "text": "Introduction to Economic Data Analysis · Fall 2026\nSyllabus · Back to Teaching\nUse this calculator to explore tentative grades and plan remaining work. The syllabus and instructor determine your official grade. Scores stay in this browser tab and are cleared when you reload or reset the page.\n\n  Loading course grading policy…\n  Enable JavaScript to use this calculator."
-  },
-  {
-    "objectID": "apps/index.html",
-    "href": "apps/index.html",
-    "title": "Apps",
-    "section": "",
-    "text": "See how repeated random samples produce a sampling distribution of the sample mean. Choose a population or draw your own, then explore how sample size changes the distribution of means.\nOpen the Central Limit Theorem Simulator"
-  },
-  {
-    "objectID": "apps/index.html#central-limit-theorem-simulator",
-    "href": "apps/index.html#central-limit-theorem-simulator",
-    "title": "Apps",
-    "section": "",
-    "text": "See how repeated random samples produce a sampling distribution of the sample mean. Choose a population or draw your own, then explore how sample size changes the distribution of means.\nOpen the Central Limit Theorem Simulator"
-  },
-  {
-    "objectID": "apps/index.html#global-debt-flows",
-    "href": "apps/index.html#global-debt-flows",
-    "title": "Apps",
-    "section": "Global debt flows",
-    "text": "Global debt flows\nVisualise foreign ownership of government bonds using IMF’s CPIS data. This Shiny app is written in R.\nOpen the Shiny app · Source code"
-  },
-  {
-    "objectID": "apps/index.html#continuous-compound-interest-calculator",
-    "href": "apps/index.html#continuous-compound-interest-calculator",
-    "title": "Apps",
-    "section": "Continuous compound interest calculator",
-    "text": "Continuous compound interest calculator\nCalculate the final value of an initial investment with continuous compounding.\nRead the article and use the calculator · Open the calculator"
+    "text": "Enable JavaScript to draw populations and run the simulator.\n  Population → Random Sample → Distribution of Sample Means\n  \n    Population\n      NormalUniform\n      Right-skewedLeft-skewed\n      BimodalCustom / Draw Your Own\n    \n  \n  \n    1. Population Distribution\n    Individual observations are drawn independently from this population.\n    \n    \n      Draw your own distribution: click or drag across the plot to set its height. Touch drawing works too. Your shape is smoothed and normalized when you finish.\n      Clear drawing\n      \n    \n    Population distribution\n  \n  \n    Sample size (n)\n    Samples per batch101001000500010000\n    Animation speed1 sample / second2 samples / second5 samples / second\n  \n  \n    Draw one sample\n    Draw many samples\n    Start animation\n    Cancel batch\n    Reset results\n  \n  Choose a population and draw a sample to begin.\n  \n  ↓ Draw n individual observations\n  \n    2. Random Sample\n    Each dot is one observation; the orange diamond marks the sample mean, x̄.\n    No sample drawn yet.\n    Latest random sample\n  \n  ↓ Add one sample mean, x̄, to the distribution below\n  \n    3. Distribution of Sample Means\n    One entry represents one entire sample’s mean, not one individual observation.\n    \n     Show normal approximation: center μ, spread σ/√n\n    Sampling distribution of the sample mean\n    Dashed line: population mean μ · Purple curve: normal approximation\n  \n  \n    What changes as you sample?\n    Larger samples (n) make sample means less variable: their theoretical standard deviation, called the standard error, is σ/√n. The Central Limit Theorem says that for independent observations from the same population with finite variance, the distribution of sample means becomes approximately normal as n grows—even when the population is not normal. Strong skewness may require larger n; 30 is not a universal threshold.\n    More repetitions make the sampling histogram clearer. They do not change its theoretical spread or make a small sample size behave like a large one. The purple curve is an approximation to compare against, not a curve fitted to the simulated means.\n    Changing the population or n clears results so different experiments are not mixed. Batch mode skips individual animations. All calculations run in your browser; nothing is uploaded or saved."
   },
   {
     "objectID": "blog/index.html",

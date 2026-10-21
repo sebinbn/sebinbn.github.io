@@ -8,6 +8,12 @@ See how repeated random samples produce a sampling distribution of the sample me
 
 [Open the Central Limit Theorem Simulator](central-limit-theorem/index.qmd)
 
+## Sampling Distribution Simulator
+
+Explore how the mean, median, histogram-based mode, and two variance estimators vary across repeated random samples. Choose a population or draw your own.
+
+[Open the Sampling Distribution Simulator](sampling-distributions/index.qmd)
+
 ::: {.project}
 ## Global debt flows
 
