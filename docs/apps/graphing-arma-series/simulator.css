@@ -1,0 +1,44 @@
+.arma { --arma-accent: #225d72; }
+.arma [hidden] { display: none !important; }
+.arma h2 { font-size: 1.55rem; margin-top: 1.6rem; }
+.arma fieldset { margin-block: 1rem; padding: .75rem 1rem 1rem; border: 1px solid #cbd5db; border-radius: 5px; min-width: 0; }
+.arma legend { float: none; width: auto; font-size: 1.05rem; font-weight: 600; padding-inline: .3rem; }
+.arma .arma-coefficients { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }
+.arma label { font-weight: 600; font-size: .95rem; }
+.arma :is(input[type="text"], select) { display: block; width: 100%; min-height: 44px; padding: .45rem; border: 1px solid #798a94; border-radius: 4px; background: white; color: #26343d; }
+.arma [aria-invalid="true"] { border-color: #a12f1d !important; }
+.arma button { min-height: 44px; padding: .5rem .9rem; border: 1px solid var(--arma-accent); border-radius: 4px; background: var(--arma-accent); color: white; font-weight: 600; }
+.arma button.arma-secondary, .arma button[aria-pressed="false"] { background: white; color: var(--arma-accent); }
+.arma button[aria-pressed="true"] { box-shadow: inset 0 -3px 0 #fff; }
+.arma :is(button, input, select, summary):focus-visible { outline: 3px solid #a34e0d; outline-offset: 3px; }
+.arma :disabled { opacity: .55; }
+.arma .arma-actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-block: 1rem; }
+.arma .arma-notice { background: #f3f7f8; border-left: 4px solid var(--arma-accent); padding: .8rem 1rem; margin-block: 1rem; }
+.arma #arma-feedback[data-order-match="true"] { background: #d1e7dd; }
+.arma .arma-error { color: #972d16; font-weight: 600; margin-block: .8rem; }
+.arma .arma-help, .arma #arma-settings { color: #53626c; font-size: .9rem; }
+.arma .arma-guesses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 28rem; gap: 1rem; margin-top: 1rem; }
+.arma .arma-checkbox { display: flex; gap: .6rem; align-items: center; min-height: 44px; margin-top: .5rem; }
+.arma .arma-checkbox input { width: 20px; height: 20px; }
+.arma .arma-model { font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.arma #arma-model-name { font-weight: 600; margin-bottom: .3rem; }
+.arma .arma-panel { min-width: 0; border: 1px solid #cbd5db; border-radius: 5px; padding: .5rem; background: white; margin-bottom: .8rem; }
+.arma .arma-panel h3 { font-family: system-ui, sans-serif; font-size: 1.1rem; margin: .3rem .5rem 0; }
+.arma .arma-correlation-plots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+.arma svg { display: block; width: 100%; height: auto; }
+.arma svg text { font: 13px system-ui, sans-serif; fill: #374852; }
+.arma svg .grid { stroke: #e4eaed; stroke-width: 1; }
+.arma svg .axis { stroke: #798a94; stroke-width: 1; }
+.arma svg .reference { stroke: #53626c; stroke-width: 1.3; stroke-dasharray: 5 4; }
+.arma svg .series { fill: none; stroke: var(--arma-accent); stroke-width: 1.2; stroke-linejoin: round; }
+.arma svg .stem { stroke: var(--arma-accent); stroke-width: 2; }
+.arma .arma-table { overflow-x: auto; }
+.arma table { width: 100%; font-size: .9rem; }
+.arma :is(th, td) { padding: .5rem; border-bottom: 1px solid #cbd5db; }
+.arma caption { caption-side: top; color: #53626c; }
+.arma summary { min-height: 44px; cursor: pointer; font-weight: 600; }
+@media (max-width: 767px) {
+  .arma .arma-correlation-plots { grid-template-columns: 1fr; gap: 0; }
+  .arma .arma-coefficients { gap: .45rem; }
+  .arma fieldset { padding-inline: .6rem; }
+}

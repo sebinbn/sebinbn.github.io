@@ -2,6 +2,12 @@
 title: Apps
 ---
 
+## Graphing ARMA series
+
+Generate a time series using up to three AR and three MA coefficients, then compare its time plot, ACF, and PACF. Explore coefficient changes with shared errors or try an order-identification exercise.
+
+[Open Graphing ARMA series](graphing-arma-series/index.qmd)
+
 ## Central Limit Theorem Simulator
 
 See how repeated random samples produce a sampling distribution of the sample mean. Choose a population or draw your own, then explore how sample size changes the distribution of means.

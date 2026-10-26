@@ -65,3 +65,21 @@ Preview over HTTP with `quarto preview` or the server command above; opening HTM
 For a future course, copy a policy to a new term/course filename, add a Quarto page following the existing examples, and update its title, course name, syllabus, `data-policy`, `data-course`, and `data-term`. Add the new page/policy paths to `_quarto.yml` and link it from Teaching. The shared calculator stays unchanged.
 
 Optional calculation regression checks can be run with an existing Node installation: `node scripts/check_grades.js`. Node is not required to build or use the site.
+
+## Graphing ARMA series
+
+The Apps page links to `/apps/graphing-arma-series/`. Edit its Quarto page, scoped CSS, browser controller (`simulator.js`), and numerical core (`statistics.mjs`) in that directory. Calculations run entirely in the browser with no external libraries, hosting service, or saved student data.
+
+Six coefficient boxes infer orders from the highest nonzero AR and MA lags. All zeros start with white noise. **Graph it** applies edits using shared errors; **Use new white noise** redraws the applied model without applying pending edits. The simulation follows the direct-recursion examples in the ECON 4325 lecture source `6_ARMA/ARMA_simulations.qmd`: Gaussian errors with variance 4, 200 observations, 2,000 preliminary observations, and sample ACF/PACF at lags 1–15. The intercept is fixed at zero. Nonstationary AR examples instead start from zero with no burn-in; nonstationarity and noninvertibility produce information notices rather than blocking graphs. Numerical overflow retains and labels the previous result.
+
+The order-identification exercise selects AR models 40% of the time, MA models 40%, ARMA models with both orders positive 10%, and white noise 10%. Orders 1–3 are uniform within each family (all nine positive-order pairs are equally likely for ARMA). These are independent selection probabilities, not fixed batch quotas. The verified stationary, invertible coefficient sets have active AR magnitudes strictly above 0.4 and active MA magnitudes strictly above 0.25; negative coefficients are allowed. Exploration inputs remain unrestricted. The exercise hides the generating equation and order until checking or revealing the answer. For ARMA models with both orders positive, **Cannot decide** is the supported inference; matching exact orders is not described as uniquely established by the plots. Exercise and exploration results survive switching modes. Nothing is persisted after reloading the page.
+
+After changes, run the normal build and site check above. The optional dependency-free regression check requires base R plus an existing Node or Deno runtime:
+
+```sh
+node scripts/check_arma.mjs
+# Alternatively, using the Deno bundled with Quarto on this Mac:
+/Applications/quarto/bin/tools/aarch64/deno run --allow-read --allow-env --allow-run=Rscript scripts/check_arma.mjs
+```
+
+The check compares simulations, stationarity/invertibility classifications, and sample correlations with independent base-R calculations, and exercises controls and answer visibility using DOM stubs. These stubs do not replace a visual desktop/mobile browser check. Preview with `python3 -m http.server 8000 --directory docs`, then open <http://localhost:8000/apps/graphing-arma-series/>.

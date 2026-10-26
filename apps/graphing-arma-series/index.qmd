@@ -1,0 +1,97 @@
+---
+title: "Graphing ARMA series"
+subtitle: "Explore how ACF and PACF help identify time-series orders."
+format:
+  html:
+    css: simulator.css
+---
+
+```{=html}
+<div id="arma" class="arma">
+  <noscript>Enable JavaScript to generate a series and display its time plot, ACF, and PACF.</noscript>
+  <div class="arma-actions" role="group" aria-label="Learning mode">
+    <button id="arma-explore-mode" type="button" aria-pressed="true">Explore a model</button>
+    <button id="arma-exercise-mode" type="button" aria-pressed="false">Identify the order</button>
+  </div>
+  <section id="arma-explore" aria-labelledby="arma-explore-heading">
+    <h2 id="arma-explore-heading">Choose coefficients</h2>
+    <p>Enter up to three AR and three MA coefficients. Use 0 for unused lags. The highest nonzero lag in each row determines p or q; all zeros give white noise.</p>
+    <form id="arma-form" novalidate>
+      <fieldset><legend>AR: lagged observations</legend>
+        <div class="arma-coefficients">
+          <label for="arma-ar1">φ₁ (lag 1)<input id="arma-ar1" type="text" inputmode="decimal" value="0" aria-describedby="arma-input-help"></label>
+          <label for="arma-ar2">φ₂ (lag 2)<input id="arma-ar2" type="text" inputmode="decimal" value="0" aria-describedby="arma-input-help"></label>
+          <label for="arma-ar3">φ₃ (lag 3)<input id="arma-ar3" type="text" inputmode="decimal" value="0" aria-describedby="arma-input-help"></label>
+        </div>
+      </fieldset>
+      <fieldset><legend>MA: lagged errors</legend>
+        <div class="arma-coefficients">
+          <label for="arma-ma1">θ₁ (lag 1)<input id="arma-ma1" type="text" inputmode="decimal" value="0" aria-describedby="arma-input-help"></label>
+          <label for="arma-ma2">θ₂ (lag 2)<input id="arma-ma2" type="text" inputmode="decimal" value="0" aria-describedby="arma-input-help"></label>
+          <label for="arma-ma3">θ₃ (lag 3)<input id="arma-ma3" type="text" inputmode="decimal" value="0" aria-describedby="arma-input-help"></label>
+        </div>
+      </fieldset>
+      <p id="arma-input-help">Positive and negative numbers are allowed. Changes take effect only when you press Graph it. The intercept is fixed at zero.</p>
+      <button type="submit" id="arma-graph">Graph it</button>
+      <div id="arma-info" class="arma-notice" role="status" hidden></div>
+      <p id="arma-input-error" class="arma-error" role="alert" hidden></p>
+      <p id="arma-pending" role="status" hidden>Coefficient edits have not been applied. Press Graph it to update the plots.</p>
+      <div class="arma-actions"><button id="arma-new-noise" type="button" class="arma-secondary">Use new white noise</button></div>
+      <p class="arma-help">Graph it reuses the same errors to isolate coefficient changes. Use new white noise redraws the currently graphed model with fresh errors; it does not apply pending edits.</p>
+    </form>
+  </section>
+  <section id="arma-exercise" aria-labelledby="arma-exercise-heading" hidden>
+    <h2 id="arma-exercise-heading">Identify the order</h2>
+    <p>Examine the time plot, ACF, and PACF. Choose candidate orders p and q (0–3), or choose Cannot decide when the plots do not identify exact orders.</p>
+    <button id="arma-new-exercise" type="button">New exercise</button>
+    <form id="arma-guess-form">
+      <div class="arma-guesses">
+        <label for="arma-guess-p">AR order p<select id="arma-guess-p"><option value="">Choose p</option><option>0</option><option>1</option><option>2</option><option>3</option></select></label>
+        <label for="arma-guess-q">MA order q<select id="arma-guess-q"><option value="">Choose q</option><option>0</option><option>1</option><option>2</option><option>3</option></select></label>
+      </div>
+      <label class="arma-checkbox"><input id="arma-undecided" type="checkbox"> Cannot decide</label>
+      <div class="arma-actions">
+        <button id="arma-check" type="submit">Check answer</button>
+        <button id="arma-reveal" type="button" class="arma-secondary">Reveal model</button>
+      </div>
+    </form>
+    <p id="arma-guess-error" class="arma-error" role="alert" hidden></p>
+    <p id="arma-feedback" class="arma-notice" role="status" hidden></p>
+  </section>
+  <section class="arma-results" aria-labelledby="arma-results-heading">
+    <h2 id="arma-results-heading">Simulated series</h2>
+    <p id="arma-status" role="status" aria-live="polite"></p>
+    <div id="arma-model" class="arma-model" hidden>
+      <p id="arma-model-name"></p><p id="arma-equation"></p>
+    </div>
+    <p id="arma-settings">200 observations · Gaussian errors with mean 0 and variance 4 · 2,000 preliminary observations discarded</p>
+    <div class="arma-panel">
+      <h3>Time plot</h3>
+      <svg id="arma-time" role="img" aria-labelledby="arma-time-title arma-time-desc"><title id="arma-time-title">Time plot</title><desc id="arma-time-desc"></desc></svg>
+    </div>
+    <div class="arma-correlation-plots">
+      <div class="arma-panel"><h3>ACF</h3><svg id="arma-acf" role="img" aria-labelledby="arma-acf-title arma-acf-desc"><title id="arma-acf-title">Sample autocorrelation function</title><desc id="arma-acf-desc"></desc></svg></div>
+      <div class="arma-panel"><h3>PACF</h3><svg id="arma-pacf" role="img" aria-labelledby="arma-pacf-title arma-pacf-desc"><title id="arma-pacf-title">Sample partial autocorrelation function</title><desc id="arma-pacf-desc"></desc></svg></div>
+    </div>
+    <p class="arma-help">ACF and PACF use the same 200 observations and show lags 1–15. Dashed correlation bounds are approximately ±0.139 (95% white-noise reference bounds). Individual crossings can occur by chance; they do not count model terms.</p>
+    <p id="arma-guidance" class="arma-notice" hidden></p>
+    <details>
+      <summary>How to read the plots</summary>
+      <p>Start with the time plot. Trends, changing variation, or other nonstationary behavior call for care before interpreting correlations.</p>
+      <div class="arma-table"><table>
+        <caption>Population patterns for stationary, invertible models without canceling AR and MA factors</caption>
+        <thead><tr><th>Model</th><th>ACF</th><th>PACF</th></tr></thead>
+        <tbody>
+          <tr><td>White noise</td><td>Zero at positive lags</td><td>Zero at positive lags</td></tr>
+          <tr><td>AR(p)</td><td>Tails off</td><td>Cuts off after lag p</td></tr>
+          <tr><td>MA(q)</td><td>Cuts off after lag q</td><td>Tails off</td></tr>
+          <tr><td>ARMA(p,q), p,q &gt; 0</td><td>Generally tails off</td><td>Generally tails off</td></tr>
+        </tbody>
+      </table></div>
+      <p>A cutoff means zero in the population, not exactly zero in a sample. Tailing off may be smooth or oscillating. Small coefficients can be hidden by sampling variation. Canceling AR and MA factors can make a model behave like one with lower orders. These plots suggest candidates; they do not prove an order.</p>
+    </details>
+  </section>
+  <p class="arma-help">All simulations and graphs run in your browser. Nothing is uploaded or saved. The app follows the direct-recursion simulation and sample-plot approach used in the ECON 4325 ARMA lecture examples.</p>
+</div>
+<script src="simulator.js" type="module"></script>
+```
