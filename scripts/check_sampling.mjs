@@ -4,12 +4,32 @@
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 import { performance } from 'node:perf_hooks';
-import { calculateStatistic, STATISTICS, MODE_WIDTH } from '../apps/sampling-distributions/statistics.mjs';
+import { calculateStatistic, populationLocations, STATISTICS, MODE_WIDTH } from '../apps/sampling-distributions/statistics.mjs';
 
 let checks = 0;
 function assert(condition, message) { checks++; if (!condition) throw Error(message); }
 function close(actual, expected, message, tolerance = 1e-9) { assert(Math.abs(actual - expected) < tolerance, `${message}: ${actual} vs ${expected}`); }
 const value = (xs, statistic) => calculateStatistic(xs, statistic).value;
+close(populationLocations('normal').median, 50, 'Normal median');
+close(populationLocations('normal').modes[0], 50, 'Normal mode');
+close(populationLocations('uniform').median, 50, 'Uniform median');
+assert(populationLocations('uniform').uniform, 'Uniform has no unique mode');
+close(populationLocations('right').median, 20 * Math.log(2), 'Exponential median');
+close(populationLocations('right').modes[0], 0, 'Exponential mode');
+close(populationLocations('left').median, 100 - 20 * Math.log(2), 'Reflected exponential median');
+close(populationLocations('left').modes[0], 100, 'Reflected exponential mode');
+close(populationLocations('bimodal').median, 50, 'Mixture median');
+const peaks = populationLocations('bimodal').modes;
+close(peaks[0], 30, 'First mixture peak', .001);
+close(peaks[1], 70, 'Second mixture peak', .001);
+close(peaks[0] + peaks[1], 100, 'Symmetric mixture peaks');
+assert(peaks[0] > 30 && peaks[1] < 70, 'Mixture peaks account for overlapping densities');
+close(populationLocations('custom', [.25, .75]).median, 50 + 50 / 3, 'Interpolate custom median');
+close(populationLocations('custom', [.5, 0, 0, .5]).median, 50, 'Midpoint of median interval across gap');
+assert(JSON.stringify(populationLocations('custom', [.5, 0, 0, .5]).modeRanges) === '[[0,25],[75,100]]', 'Separate custom peaks');
+assert(JSON.stringify(populationLocations('custom', [1, 1, 0, 1]).modeRanges) === '[[0,50],[75,100]]', 'Merge adjacent custom peaks');
+assert(JSON.stringify(populationLocations('custom', [1, 1, 1, 1]).modeRanges) === '[[0,100]]', 'Flat custom population mode range');
+assert(populationLocations('custom', [0, 0, 0]) === null, 'Empty custom population locations');
 close(value([1, 2, 3], 'mean'), 2, 'Mean');
 close(value([12, 2, 3], 'median'), 3, 'Numeric sort and odd median');
 close(value([12, 2, 3, 4], 'median'), 3.5, 'Even median');
@@ -59,7 +79,7 @@ const $ = id => elements.get(`sampling-${id}`);
 $('population').value = 'right'; $('n').value = '5'; $('statistic').value = 'mean';
 $('batch').value = '1000'; $('speed').value = '5'; $('overlay').checked = true;
 const context = {
-  calculateStatistic, MODE_WIDTH, STATISTICS, performance, setTimeout, clearTimeout,
+  calculateStatistic, populationLocations, MODE_WIDTH, STATISTICS, performance, setTimeout, clearTimeout,
   requestAnimationFrame: callback => setTimeout(() => callback(performance.now()), 0), cancelAnimationFrame: clearTimeout,
   Math: Object.assign(Object.create(Math), { random }),
   window: { matchMedia: () => ({ matches: true }) }, ResizeObserver: class { observe() {} },
@@ -79,6 +99,16 @@ async function idle() {
   assert(state.mode === 'idle', 'Work completed');
 }
 assert(state.count === 0 && state.statistic === 'mean', 'Initialization');
+assert($('pop-stats').textContent.startsWith('μ = ') && $('pop-stats').textContent.includes(' · σ = ') && $('pop-stats').textContent.includes(' · σ² = '), 'Compact population symbols');
+assert($('pop-stats').textContent.includes('Median = ') && $('pop-stats').textContent.includes('Mode = '), 'Population locations displayed');
+assert(!/Population mean|Standard deviation|variance/i.test($('pop-stats').textContent), 'No full moment names in visible summary');
+assert($('pop-desc').textContent.includes('Population mean') && $('pop-desc').textContent.includes('Standard deviation'), 'Accessible names retained');
+settings('mean', 5, 'custom');
+state.weights = Array.from({ length: 40 }, (_, i) => i % 2 ? 0 : 1);
+api.configure();
+assert($('pop-stats').textContent.includes('Mode = multiple ranges'), 'Long mode list summarized');
+assert($('pop-stats').getAttribute('title').includes('0–2.5, 5–7.5'), 'Full mode ranges available in tooltip');
+assert($('pop-desc').textContent.includes('95–97.5'), 'Full mode ranges available in graph description');
 settings('sampleVariance', 1);
 assert($('one').disabled && $('many').disabled && $('animate').disabled, 'N−1 buttons disabled at N=1');
 $('many').click(); assert(state.count === 0, 'Undefined variance cannot sample');

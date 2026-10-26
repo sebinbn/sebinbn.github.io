@@ -1,4 +1,4 @@
-import { calculateStatistic, MODE_WIDTH, STATISTICS } from './statistics.mjs';
+import { calculateStatistic, populationLocations, MODE_WIDTH, STATISTICS } from './statistics.mjs';
 /* Independent sampling and bounded, cancellable main-thread work. No external libraries. */
 (() => {
   'use strict';
@@ -201,8 +201,18 @@ import { calculateStatistic, MODE_WIDTH, STATISTICS } from './statistics.mjs';
       ? state.drawMaximum / (drawingTotal * 2.5)
       : Math.max(.01, ...points.map(v => v[1])) * 1.1;
     axes(p, max, 'Probability density'); p.area.setAttribute('d', pathFrom(p, points, max, true));
-    $('pop-stats').textContent = state.valid ? `Population mean μ = ${fmt(state.mu)} · Standard deviation σ = ${fmt(state.sigma)} · True variance σ² = ${fmt(state.sigma ** 2)}` : 'Population has no probability mass yet.';
-    $('pop-desc').textContent = `${$('population').selectedOptions[0].textContent}. ${$('pop-stats').textContent}. Dashed line marks μ. ${['normal', 'bimodal', 'left', 'right'].includes(state.type) ? 'Tails extend beyond the initial viewing window; sampled extremes expand the observation axes.' : ''}`;
+    const locations = state.valid ? populationLocations(state.type, state.probabilities) : null;
+    let description = 'Population has no probability mass yet.';
+    if (locations) {
+      const fullMode = locations.uniform ? 'all values (0–100)'
+        : locations.modeRanges ? locations.modeRanges.map(([lo, hi]) => `${fmt(lo)}–${fmt(hi)}`).join(', ')
+        : `${locations.approximate ? '≈ ' : ''}${locations.modes.map(fmt).join(', ')}`;
+      const mode = locations.modeRanges && fullMode.length > 40 ? 'multiple ranges' : fullMode;
+      $('pop-stats').textContent = `μ = ${fmt(state.mu)} · Median = ${fmt(locations.median)} · Mode = ${mode} · σ = ${fmt(state.sigma)} · σ² = ${fmt(state.sigma ** 2)}`;
+      description = `Population mean μ = ${fmt(state.mu)}. Median = ${fmt(locations.median)}. Mode = ${fullMode}. Standard deviation σ = ${fmt(state.sigma)}. Variance σ² = ${fmt(state.sigma ** 2)}.`;
+    } else $('pop-stats').textContent = description;
+    $('pop-stats').setAttribute('title', description);
+    $('pop-desc').textContent = `${$('population').selectedOptions[0].textContent}. ${description} Dashed line marks μ. ${['normal', 'bimodal', 'left', 'right'].includes(state.type) ? 'Tails extend beyond the initial viewing window; sampled extremes expand the observation axes.' : ''}`;
   }
   function renderSample(sample = state.latest, showStatistic = true) {
     const p = samplePlot; axes(p, 1, '');

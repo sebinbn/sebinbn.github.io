@@ -6,6 +6,58 @@ export const STATISTICS = {
   sampleVariance: 'Sample variance (N−1 denominator)'
 };
 
+// The symmetric Gaussian mixture has two peaks slightly inside 30 and 70.
+const bimodalModes = (() => {
+  const slope = x => (30 - x) * Math.exp(-((x - 30) ** 2) / 98)
+    + (70 - x) * Math.exp(-((x - 70) ** 2) / 98);
+  let lo = 30, hi = 40;
+  for (let i = 0; i < 50; i++) {
+    const mid = (lo + hi) / 2;
+    if (slope(mid) > 0) lo = mid; else hi = mid;
+  }
+  const peak = (lo + hi) / 2;
+  return [peak, 100 - peak];
+})();
+
+export function populationLocations(type, probabilities = []) {
+  switch (type) {
+    case 'normal': return { median: 50, modes: [50] };
+    case 'uniform': return { median: 50, modeRanges: [[0, 100]], uniform: true };
+    case 'right': return { median: 20 * Math.LN2, modes: [0] };
+    case 'left': return { median: 100 - 20 * Math.LN2, modes: [100] };
+    case 'bimodal': return { median: 50, modes: bimodalModes, approximate: true };
+    case 'custom': {
+      const total = probabilities.reduce((sum, p) => sum + p, 0);
+      if (!(total > 0)) return null;
+      const masses = probabilities.map(p => p / total), width = 100 / masses.length;
+      let cumulative = 0, median;
+      for (let i = 0; i < masses.length; i++) {
+        const mass = masses[i], next = cumulative + mass;
+        if (mass > 0 && next >= .5 - 1e-12) {
+          median = (i + Math.max(0, Math.min(1, (.5 - cumulative) / mass))) * width;
+          if (Math.abs(next - .5) < 1e-12) {
+            let j = i + 1;
+            while (j < masses.length && masses[j] === 0) j++;
+            if (j < masses.length) median = (median + j * width) / 2;
+          }
+          break;
+        }
+        cumulative = next;
+      }
+      const peak = Math.max(...masses), modeRanges = [];
+      let previous = -2;
+      masses.forEach((mass, i) => {
+        if (Math.abs(mass - peak) > peak * 1e-12) return;
+        if (i === previous + 1) modeRanges[modeRanges.length - 1][1] = (i + 1) * width;
+        else modeRanges.push([i * width, (i + 1) * width]);
+        previous = i;
+      });
+      return { median, modeRanges };
+    }
+    default: throw new RangeError('Unsupported population.');
+  }
+}
+
 export function calculateStatistic(values, statistic, random = Math.random) {
   const n = values.length;
   if (!n || !Object.hasOwn(STATISTICS, statistic)) throw new RangeError('A nonempty sample and supported statistic are required.');
